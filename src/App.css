@@ -24,7 +24,7 @@ img {
 }
 
 #Header {
-  background: url("https://image.shutterstock.com/image-vector/traditional-indian-paisley-pattern-on-600w-1726867504.jpg") no-repeat,
+  background: url("./app/img/Blue-Aesthetic-Creative-PNG-Image.png") no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #ec008c, transparent),
     radial-gradient(ellipse at bottom, #fc6767, transparent);
@@ -209,7 +209,7 @@ img {
 
 .black-and-white-paisley-bg,
 .eitan-info-box {
-  background: url("https://image.shutterstock.com/image-vector/traditional-indian-paisley-pattern-on-600w-1726867504.jpg"),
+  background: url("../app/img/Black-and-White-Paisley-Pattern.png"),
     no-repeat;
 }
 

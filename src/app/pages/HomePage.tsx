@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import Header from '../components/Header';
 
 const HomePage = () => {
   useEffect(() => {
@@ -8,7 +7,6 @@ const HomePage = () => {
 
   return (
     <>
-      <Header />
       HomePage
     </>
   );
