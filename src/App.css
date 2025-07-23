@@ -1,3 +1,9 @@
+/* * {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+} */
+
 body {
   background: var(--body-bg);
 }
@@ -586,7 +592,6 @@ a {
 }
 
 .shoutOuts {
-  font-size: x-large;
   background: url(app/img/Color-Explosion.png) no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, #ec008c, transparent),

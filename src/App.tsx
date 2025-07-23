@@ -5,7 +5,6 @@ import FiresIntro from "./app/pages/FiresIntro";
 import ContactForm from "./app/pages/ContactForm";
 import MakeAShoutOutForm from "./app/pages/MakeAShoutOutForm";
 import { Routes, Route } from "react-router-dom";
-
 import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 import { theme } from "./theme";
