@@ -16,7 +16,7 @@ interface ShoutOut {
 const ShoutOutCarousel: React.FC = () => {
   // Create autoplay instance with useRef
   const autoplay = useRef(Autoplay({ 
-    delay: 3000, // 3 seconds delay between slides
+    delay: 5000,
     stopOnInteraction: false // Continue autoplay after user interaction
   }));
 
