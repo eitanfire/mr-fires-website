@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@mantine/core";
 import { useSpring, animated } from "react-spring";
 import weekday from "../utils/day";
@@ -19,7 +19,7 @@ const BlockDay: React.FC<BlockDayProps> = () => {
     setToggle(true);
   }, []);
 
-  const brightDay: JSX.Element = (
+  const brightDay: React.ReactElement = (
     <span id="aBAB">
       {typeof aDayBDay === "string" ? aDayBDay.slice(1) : ""}
     </span>
@@ -34,7 +34,7 @@ const BlockDay: React.FC<BlockDayProps> = () => {
           </Grid.Col>
           {aDayBDay && (
             <Grid.Col span={12}>
-              It's a{aDayBDay[0]} {brightDay} day.
+              It's a{typeof aDayBDay === "string" ? aDayBDay[0] : ""} {brightDay} day.
             </Grid.Col>
           )}
         </Grid>
