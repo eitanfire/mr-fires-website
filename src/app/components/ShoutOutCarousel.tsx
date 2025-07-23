@@ -1,17 +1,49 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Carousel } from "@mantine/carousel";
 import type { EmblaCarouselType } from "embla-carousel";
 import { Box, Title, ActionIcon } from "@mantine/core";
 import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
-import { shoutOuts } from "../utils/shoutOuts";
-import ShoutOutCard from "./ShoutOutCard";
 import Autoplay from 'embla-carousel-autoplay';
+
+// Mock data for demonstration
+const shoutOuts = [
+  { to: "John", from: "Sarah", because: "Great teamwork on the project!" },
+  { to: "Alice", from: "Bob", because: "Always willing to help others" },
+  { to: "Mike", from: "Lisa", because: "Excellent problem-solving skills" },
+  { to: "Emma", from: "David", because: "Outstanding presentation yesterday" },
+  { to: "Chris", from: "Amy", because: "Mentoring new team members" },
+  { to: "Sophie", from: "Tom", because: "Creative solutions and innovation" },
+  { to: "Ryan", from: "Kate", because: "Reliable and dedicated work" }
+];
 
 interface ShoutOut {
   to?: string;
   from?: string;
   because?: string;
 }
+
+// Mock ShoutOutCard component
+const ShoutOutCard: React.FC<{ to?: string; from?: string; because?: string; id: number }> = ({ to, from, because }) => (
+  <Box
+    style={{
+      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      padding: "20px",
+      borderRadius: "12px",
+      color: "white",
+      height: "160px",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
+    }}
+  >
+    <div>
+      <Title order={4} style={{ marginBottom: "8px" }}>To: {to}</Title>
+      <p style={{ fontSize: "14px", margin: "0 0 12px 0" }}>{because}</p>
+    </div>
+    <p style={{ fontSize: "12px", fontStyle: "italic", margin: "0" }}>— {from}</p>
+  </Box>
+);
 
 const ShoutOutCarousel: React.FC = () => {
   // Create autoplay instance with useRef
@@ -22,6 +54,8 @@ const ShoutOutCarousel: React.FC = () => {
 
   // State to track if autoplay is playing
   const [isPlaying, setIsPlaying] = useState(true);
+  const [emblaApi, setEmblaApi] = useState<EmblaCarouselType | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState(2);
 
   const toggleAutoplay = () => {
     if (isPlaying) {
@@ -33,26 +67,59 @@ const ShoutOutCarousel: React.FC = () => {
     }
   };
 
-  const slides = shoutOuts.map((item: ShoutOut, index: number) => (
-    <Carousel.Slide key={index}>
-      <ShoutOutCard 
-        to={item.to}
-        from={item.from}
-        because={item.because}
-        id={index}
-      />
-    </Carousel.Slide>
-  ));
+  // Function to calculate opacity based on distance from center
+  const getSlideOpacity = (slideIndex: number, centerIndex: number, totalSlides: number) => {
+    const distance = Math.abs(slideIndex - centerIndex);
+    const maxDistance = Math.floor(totalSlides / 2);
+    
+    // Calculate opacity: center = 1, gradually decrease to sides
+    if (distance === 0) return 1; // Center slide
+    if (distance === 1) return 0.7; // Adjacent slides
+    if (distance === 2) return 0.4; // Further slides
+    return 0.2; // Furthest slides
+  };
 
-  const [emblaApi, setEmblaApi] = React.useState<EmblaCarouselType | null>(null);
+  const slides = shoutOuts.map((item: ShoutOut, index: number) => {
+    const opacity = getSlideOpacity(index, selectedIndex, shoutOuts.length);
+    
+    return (
+      <Carousel.Slide 
+        key={index}
+        style={{
+          opacity: opacity,
+          transition: 'opacity 0.3s ease-in-out'
+        }}
+      >
+        <ShoutOutCard 
+          to={item.to}
+          from={item.from}
+          because={item.because}
+          id={index}
+        />
+      </Carousel.Slide>
+    );
+  });
 
   function setEmbla(embla: EmblaCarouselType): void {
     setEmblaApi(embla);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (emblaApi) {
       console.log("Embla API is ready", emblaApi);
+      
+      // Set up event listener for slide selection
+      const onSelect = () => {
+        setSelectedIndex(emblaApi.selectedScrollSnap());
+      };
+      
+      emblaApi.on('select', onSelect);
+      onSelect(); // Set initial selected index
+      
+      // Cleanup
+      return () => {
+        emblaApi.off('select', onSelect);
+      };
     }
   }, [emblaApi]);
 
@@ -62,7 +129,7 @@ const ShoutOutCarousel: React.FC = () => {
       <Title 
         order={3} 
         className="shoutOut-logo" 
-        hiddenFrom="xxl"
+        style={{ marginBottom: "16px" }}
       >
         Shout Out
       </Title>
