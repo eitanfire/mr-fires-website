@@ -22,26 +22,49 @@ interface ShoutOut {
   because?: string;
 }
 
-// Mock ShoutOutCard component
+// Updated ShoutOutCard with school theme colors
 const ShoutOutCard: React.FC<{ to?: string; from?: string; because?: string; id: number }> = ({ to, from, because }) => (
   <Box
     style={{
-      background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      background: "linear-gradient(135deg, #D7CD89 0%, #c4b876 100%)", // School yellow gradient
       padding: "20px",
       borderRadius: "12px",
-      color: "white",
+      color: "#000000", // School black for text
       height: "160px",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)"
+      boxShadow: "0 4px 12px rgba(215, 205, 137, 0.3)", // Yellow shadow
+      border: "2px solid #000000" // Black border
     }}
   >
     <div>
-      <Title order={4} style={{ marginBottom: "8px" }}>To: {to}</Title>
-      <p style={{ fontSize: "14px", margin: "0 0 12px 0" }}>{because}</p>
+      <Title 
+        order={4} 
+        style={{ 
+          marginBottom: "8px", 
+          color: "#000000", // School black
+          fontWeight: 700
+        }}
+      >
+        To: {to}
+      </Title>
+      <p style={{ 
+        fontSize: "14px", 
+        margin: "0 0 12px 0", 
+        color: "#000000" // School black
+      }}>
+        {because}
+      </p>
     </div>
-    <p style={{ fontSize: "12px", fontStyle: "italic", margin: "0" }}>— {from}</p>
+    <p style={{ 
+      fontSize: "12px", 
+      fontStyle: "italic", 
+      margin: "0", 
+      color: "#595959" // Darker gray from schoolDark palette
+    }}>
+      — {from}
+    </p>
   </Box>
 );
 
@@ -125,16 +148,20 @@ const ShoutOutCarousel: React.FC = () => {
 
   return (
     <Box style={{ position: "relative"}}>
-      {/* Logo */}
+      {/* Logo with school colors */}
       <Title 
         order={3} 
         className="shoutOut-logo" 
-        style={{ marginBottom: "16px" }}
+        style={{ 
+          marginBottom: "16px",
+          color: "#000000", // School black
+          textShadow: "1px 1px 2px rgba(215, 205, 137, 0.3)" // Subtle yellow shadow
+        }}
       >
         Shout Out
       </Title>
       
-      {/* Pause/Play Button */}
+      {/* Pause/Play Button with school colors */}
       <ActionIcon
         variant="filled"
         size="lg"
@@ -144,8 +171,9 @@ const ShoutOutCarousel: React.FC = () => {
           top: "10px",
           right: "10px",
           zIndex: 10,
-          backgroundColor: "rgba(0, 0, 0, 0.6)",
-          color: "white"
+          backgroundColor: "#000000", // School black
+          color: "#D7CD89", // School yellow icon
+          border: "2px solid #D7CD89" // Yellow border
         }}
         aria-label={isPlaying ? "Pause autoplay" : "Play autoplay"}
       >
@@ -172,6 +200,23 @@ const ShoutOutCarousel: React.FC = () => {
         onMouseLeave={() => {
           if (isPlaying) {
             autoplay.current.play();
+          }
+        }}
+        styles={{
+          control: {
+            backgroundColor: "#000000", // Black controls
+            color: "#D7CD89", // Yellow icons
+            border: "2px solid #D7CD89",
+            '&:hover': {
+              backgroundColor: "#D7CD89", // Yellow on hover
+              color: "#000000" // Black icons on hover
+            }
+          },
+          indicator: {
+            backgroundColor: "#D7CD89", // Yellow indicators
+            '&[data-active]': {
+              backgroundColor: "#000000" // Black for active indicator
+            }
           }
         }}
       >
