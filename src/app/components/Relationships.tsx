@@ -25,6 +25,12 @@ const Relationships: React.FC = () => {
         radius="md" 
         withBorder
         visibleFrom="lg"
+        styles={{
+          root: {
+            borderColor: "#000000", // School black border
+            backgroundColor: "#f8f7f2", // Light school yellow background
+          }
+        }}
       >
         <Card.Section>
           <Container className="eitan-info-box" size="xs">
@@ -34,16 +40,26 @@ const Relationships: React.FC = () => {
                 to="/shout-out"
                 className="EitanInfoButtons"
                 variant="filled"
-                color="cyan"
+                color="school" // Use school yellow theme color
                 radius="xl"
                 fullWidth
                 styles={{
                   root: {
-                    border: '1px solid #000',
+                    border: '2px solid #000000', // School black border
+                    backgroundColor: '#D7CD89', // School yellow background
+                    color: '#000000', // School black text
+                    '&:hover': {
+                      backgroundColor: '#c4b876', // Darker yellow on hover
+                      color: '#000000', // Keep black text on hover
+                    }
                   }
                 }}
               >
-                <Title order={3} id="rainbowText">
+                <Title 
+                  order={3} 
+                  id="rainbowText"
+                  style={{ color: '#000000' }} // School black text
+                >
                   Shout Out
                 </Title>
               </Button>
@@ -53,16 +69,26 @@ const Relationships: React.FC = () => {
                 to="/contact"
                 className="EitanInfoButtons"
                 variant="filled"
-                color="cyan"
+                color="schoolDark" // Use school black theme color
                 radius="xl"
                 fullWidth
                 styles={{
                   root: {
-                    border: '1px solid #000',
+                    border: '2px solid #D7CD89', // School yellow border
+                    backgroundColor: '#000000', // School black background
+                    color: '#D7CD89', // School yellow text
+                    '&:hover': {
+                      backgroundColor: '#404040', // Lighter black on hover
+                      color: '#D7CD89', // Keep yellow text on hover
+                    }
                   }
                 }}
               >
-                <Title order={3} id="rainbowText">
+                <Title 
+                  order={3} 
+                  id="rainbowText"
+                  style={{ color: '#D7CD89' }} // School yellow text
+                >
                   Contact
                 </Title>
               </Button>
@@ -71,17 +97,28 @@ const Relationships: React.FC = () => {
                 component={Link}
                 to="/read-more"
                 className="EitanInfoButtons"
-                variant="filled"
-                color="cyan"
+                variant="outline" // Use outline variant for variety
+                color="schoolDark"
                 radius="xl"
                 fullWidth
                 styles={{
                   root: {
-                    border: '1px solid #000',
+                    border: '2px solid #000000', // School black border
+                    backgroundColor: 'transparent',
+                    color: '#000000', // School black text
+                    '&:hover': {
+                      backgroundColor: '#f1eedf', // Light yellow background on hover
+                      color: '#000000', // Keep black text on hover
+                      borderColor: '#000000', // Keep black border
+                    }
                   }
                 }}
               >
-                <Title order={3} id="rainbowText">
+                <Title 
+                  order={3} 
+                  id="rainbowText"
+                  style={{ color: '#000000' }} // School black text
+                >
                   Your Teacher
                 </Title>
               </Button>

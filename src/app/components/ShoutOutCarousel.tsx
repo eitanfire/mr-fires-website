@@ -184,10 +184,10 @@ const ShoutOutCarousel: React.FC = () => {
       <Carousel
         withIndicators
         withControls
-        controlSize={90}
+        controlSize={30}
         emblaOptions={{ dragFree: true }}
         slideSize="50%"
-        slideGap="md"
+        slideGap="lg"
         height={200}
         getEmblaApi={setEmbla}
         initialSlide={2}
@@ -202,7 +202,7 @@ const ShoutOutCarousel: React.FC = () => {
             autoplay.current.play();
           }
         }}
-        styles={{
+       styles={{
           control: {
             backgroundColor: "#000000", // Black controls
             color: "#D7CD89", // Yellow icons
@@ -210,6 +210,9 @@ const ShoutOutCarousel: React.FC = () => {
             '&:hover': {
               backgroundColor: "#D7CD89", // Yellow on hover
               color: "#000000" // Black icons on hover
+            },
+            '&[data-previous]': {
+              display: 'none' // Hide the previous (left) control
             }
           },
           indicator: {
