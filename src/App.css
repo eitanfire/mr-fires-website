@@ -221,15 +221,18 @@ img {
 .accordion-title,
 .accordion-title:hover,
 .ContactForm {
-  background-image: url("https://as2.ftcdn.net/v2/jpg/00/94/53/25/500_F_94532580_XwSK8I03t7oQY246gc6vdeU1wm6q2r8P.jpg");
+background-image: url("/src/app/img/JA course images/repeating-jaguars.png");
+  background-repeat: repeat;
+  background-size: 400px 400px;
   background-attachment: fixed;
   font-family: "Inter", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  
 }
 
 .black-and-white-paisley-bg,
 .eitan-info-box {
-  background: url("../app/img/Black-and-White-Paisley-Pattern.png"),
-    no-repeat;
+  background: url("../app/img/JA course images/repeating-jaguars.png") repeat;
+  background-size: 150px 150px;
 }
 
 .shoutOuts,
@@ -644,4 +647,14 @@ a {
 
 .card-body {
   background-color: transparent;
+}
+
+.hero-parallax {
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.mountain-parallax {
+  position: relative;
+  margin-bottom: 2rem;
 }

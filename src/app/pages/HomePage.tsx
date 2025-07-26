@@ -1,57 +1,72 @@
 import { useEffect } from "react";
-import { Container, Grid, Title } from "@mantine/core";
+import { Container, Grid, Title, Text } from "@mantine/core";
 import Relationships from "../components/Relationships";
 import Calendar from "../components/Calendar";
-// import ShoutOuts from "../components/ShoutOuts";
 import BlockDay from "../components/BlockDay";
-// import aDayBDay from "../utils/aDayBDay";
-// import Tabs from "../components/TabComponent/Tabs";
-// import Fall2023ClassesAccordion from "../components/TabComponent/V2/Fall2023ClassesAccordion";
 import ShoutOutCarousel from "../components/ShoutOutCarousel";
 import Courses from '../components/Courses';
-// import ClassAccordionInterface from "../features/ClassAccordionInterface";
-// import AnimatedAccordion from "../features/AnimatedAccordion";
+import { MountainParallax } from '../components/MountainParallax'; // Import the parallax component
+import mountainBackground from '../img/mountain-background.png';
+import mountainMiddle from '../img/mountain-middle.png';
+import mountainForeground from '../img/mountain-foreground.png';
 
 const HomePage: React.FC = () => {
-    useEffect(() => {
+  useEffect(() => {
     document.title = "Mr. Fire's Website";
   }, []);
   
   return (
-    <Container size="xl">
-      <Grid className="accordion">
-        <Grid.Col span={12}>
-          <ShoutOutCarousel />
-        </Grid.Col>
-        
-        <Grid.Col 
-          span={{ base: 0, lg: 3 }}
-          className="eitan-info-box-container"
-          visibleFrom="lg"
-        >
-          <Title order={2}>
-            {/* {aDayBDay && ( */}
-              <BlockDay />
-            {/* )} */}
+    <>
+      {/* Mountain Parallax Hero Section */}
+      <MountainParallax
+               backgroundImageUrl={mountainBackground}
+        middleImageUrl={mountainMiddle}
+        foregroundImageUrl={mountainForeground}
+        containerHeight="70vh"
+        className="hero-parallax"
+      >
+        {/* Optional: Add content over the parallax */}
+        <div>
+          <Title order={1} size="3rem" mb="md">
+            Welcome to Mr. Fire's Website
           </Title>
-          <Relationships />
-        </Grid.Col>
-        
-        <Grid.Col 
-          span={{ base: 12, lg: 9 }}
-          className="accordion"
-        >
-          {/* <Tabs /> */}
-          <Courses 
-          // className="Fall2023ClassesAccordion" 
-          />
-        </Grid.Col>
-        
-        <Grid.Col span={12} mt="md">
-          <Calendar />
-        </Grid.Col>
-      </Grid>
-    </Container>
+          <Text size="xl">
+            Discover amazing content and resources
+          </Text>
+        </div>
+      </MountainParallax>
+
+      {/* Main Content */}
+      <Container size="xl">
+        <Grid className="accordion">
+          <Grid.Col span={12}>
+            <ShoutOutCarousel />
+          </Grid.Col>
+          
+          <Grid.Col 
+            span={{ base: 0, lg: 3 }}
+            className="eitan-info-box-container"
+            visibleFrom="lg"
+          >
+            <Title order={2}>
+              <BlockDay />
+            </Title>
+            <Relationships />
+          </Grid.Col>
+          
+          <Grid.Col 
+            span={{ base: 12, lg: 9 }}
+            className="accordion"
+          >
+            <Courses />
+          </Grid.Col>
+          
+          <Grid.Col span={12} mt="md">
+            <Calendar />
+          </Grid.Col>
+        </Grid>
+      </Container>
+    </>
   );
 };
 
