@@ -25,7 +25,6 @@ const HomePage: React.FC = () => {
         containerHeight="70vh"
         className="hero-parallax"
       >
-        {/* Optional: Add content over the parallax */}
         <div>
           <Title order={1} size="3rem" mb="md">
             Welcome to Mr. Fire's Website
@@ -36,7 +35,6 @@ const HomePage: React.FC = () => {
         </div>
       </MountainParallax>
 
-      {/* Main Content */}
       <Container size="xl">
         <Grid className="accordion">
           <Grid.Col span={12}>
