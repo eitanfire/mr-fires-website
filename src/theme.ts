@@ -7,7 +7,7 @@ const school: MantineColorsTuple = [
   "#eae5cc", // 2
   "#e3dcb9", // 3
   "#dcd3a6", // 4
-  "#D7CD89", // 5 - Your secondary color (main yellow)
+  "#D7CD89", // 5 - secondary color (main yellow)
   "#c4b876", // 6
   "#b1a363", // 7
   "#9e8e50", // 8
@@ -24,7 +24,7 @@ const schoolDark: MantineColorsTuple = [
   "#717171", // 6
   "#595959", // 7
   "#404040", // 8
-  "#000000", // 9 - Your primary black
+  "#000000", // 9 - primary black
 ];
 
 export const theme = createTheme({
