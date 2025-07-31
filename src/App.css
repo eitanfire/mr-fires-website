@@ -51,31 +51,32 @@ img {
 }
 
 #Header {
-  background: url("./app/img/Blue-Aesthetic-Creative-PNG-Image.png") no-repeat,
+  background: url("./app/img/seamless-floral-pattern-leopard-peonies-animals-garden-flowers-modern-decor-beast-style-vector-illustration-template-133420539.jpg") repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, var(--ja-secondary), transparent),
     radial-gradient(ellipse at bottom, var(--ja-secondary-dark), transparent);
   border-top: 1px solid var(--ja-primary);
   border-bottom: 1px solid var(--ja-primary);
   margin-bottom: 2rem;
+    background-position: 1300% 0%;
 }
 
 #logo {
   position: absolute;
   top: 0px;
   right: 3.75rem;
-  border: 3px solid var(--ja-primary);
+  /* border: 3px solid var(--ja-primary); */
   height: auto;
 }
 
-#banner {
-  border: 3px solid var(--ja-primary);
-  height: 10rem;
-  width: fit-content;
-  background-attachment: fixed;
-}
+/* #banner { */
+  /* border: 3px solid var(--ja-primary); */
+  /* height: 10rem; */
+  /* width: fit-content; */
+  /* background-attachment: fixed; */
+/* } */
 
-#class-with-eitan-sm {
+/* #class-with-eitan-sm {
   position: relative;
   top: 15%;
   border: 4px solid var(--ja-primary);
@@ -83,14 +84,14 @@ img {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-}
+} */
 
-#class-with-eitan-lg {
+/* #class-with-eitan-lg {
   position: relative;
   border: 4px solid var(--ja-primary);
   bottom: 0.15rem;
   right: 5%;
-}
+} */
 
 .accordion {
   position: relative;
@@ -216,14 +217,14 @@ img {
 #rainbowText,
 #eitansProfilePic,
 #infoCard,
-#banner,
+/* #banner, */
 .accordion,
 .accordion-title,
 .accordion-title:hover,
 .ContactForm {
-background-image: url("/src/app/img/JA course images/repeating-jaguars.png");
+background-image: url("/src/app/img/seamless-floral-pattern-leopard-peonies-animals-garden-flowers-modern-decor-beast-style-vector-illustration-template-133420539.jpg");
   background-repeat: repeat;
-  background-size: 400px 400px;
+  background-size: 2000px 2000px;
   background-attachment: fixed;
   font-family: "Inter", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   

@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { Container, Grid, Image } from "@mantine/core";
 import { useSpring, animated } from "react-spring";
 import { Link } from "react-router-dom";
-import Banner from "../img/class-website-banner.png";
-import Logo from "../img/logo.jpg";
 import "../../App.css";
+import Banner from "../img/JA course images/ja-initials.svg"
+import Logo from "../img/JA course images/ja-logo.svg"
 
 const Header: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(false);
@@ -26,8 +26,10 @@ const Header: React.FC = () => {
     <animated.div style={animatedStyle}>
       <div className="App" id="Header">
         <Link to="/">
-          <Container size="xl">
-            <Grid id="banner" align="center">
+          <Container size="xl" >
+            <Grid id="banner" 
+            align="center"
+            >
               <Grid.Col 
                 span={{ base: 0, sm: 0, md: 'auto' }}
                 visibleFrom="md"
@@ -57,7 +59,7 @@ const Header: React.FC = () => {
                 <Image 
                   id="logo" 
                   src={Logo} 
-                  alt="September School logo"
+                  alt="Jefferson Academy logo"
                   fit="contain"
                 />
               </Grid.Col>
