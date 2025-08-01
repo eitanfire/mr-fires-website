@@ -10,11 +10,6 @@
   --ja-secondary-dark: #c4b876;    /* Dark yellow */
   --ja-secondary-darker: #b1a363;  /* Darker yellow */
   
-  /* September School (Old) Theme Colors - for reference */
-  --sept-primary: #ec008c;         /* Pink */
-  --sept-secondary: #fc6767;       /* Orange/Red */
-  --sept-accent: #39b9d2;          /* Cyan */
-  
   /* Body background using new theme */
   --body-bg: var(--ja-secondary-light);
 }
@@ -51,22 +46,32 @@ img {
 }
 
 #Header {
-  background: url("./app/img/seamless-floral-pattern-leopard-peonies-animals-garden-flowers-modern-decor-beast-style-vector-illustration-template-133420539.jpg") repeat,
+  /* Credit the author
+Crediting authors is rewarding. Please use the following credit line in your project:
+
+
+ID 133420539 © Marina Vorontsova | Dreamstime.com */
+/* background-image: url("/src/app/img/dreamstime_xxl_133420539.jpg"); */
+  background: url("./app/img/dreamstime_xxl_133420539.jpg") no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, var(--ja-secondary), transparent),
     radial-gradient(ellipse at bottom, var(--ja-secondary-dark), transparent);
   border-top: 1px solid var(--ja-primary);
   border-bottom: 1px solid var(--ja-primary);
   margin-bottom: 2rem;
-    background-position: 1300% 0%;
+    background-size: 100% auto;
+    background-position: 10% 58%;
 }
 
 #logo {
-  position: absolute;
-  top: 0px;
-  right: 3.75rem;
+  /* position: relative; */
+  /* align-items: center; */
+  /* position: absolute; */
+  /* top: 0px; */
+  /* right: 3.75rem; */
   /* border: 3px solid var(--ja-primary); */
-  height: auto;
+  /* height: auto; */
+  
 }
 
 /* #banner { */
@@ -191,14 +196,16 @@ img {
   margin-top: 1.25rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  text-align: center;
-  font-size: larger;
-  background: url(app/img/kindpng_4845863.png) no-repeat,
+  /* text-align: center; */
+  /* font-size: larger; */
+  background: url(app/img/dreamstime_xxl_133420539.jpg) no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, var(--ja-secondary), transparent),
     radial-gradient(ellipse at bottom, var(--ja-secondary-dark), transparent);
-  background-position: 0% 75%;
+  background-position:  auto 95%;
   color: var(--ja-primary);
+      background-size: 100% auto;
+      font-size: large;
 }
 
 @media screen and (max-width: 500px) {
@@ -222,12 +229,14 @@ img {
 .accordion-title,
 .accordion-title:hover,
 .ContactForm {
-background-image: url("/src/app/img/seamless-floral-pattern-leopard-peonies-animals-garden-flowers-modern-decor-beast-style-vector-illustration-template-133420539.jpg");
+
+/* ID 170510354 © Kolgotki23 | Dreamstime.com */
+background-image: url("./app/img/leaves.jpg");
   background-repeat: repeat;
-  background-size: 2000px 2000px;
+  background-size: 100% auto;
   background-attachment: fixed;
   font-family: "Inter", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  
+    background-position: 70% 60%;
 }
 
 .black-and-white-paisley-bg,
@@ -574,8 +583,8 @@ a {
 }
 
 #aBAB {
-  background: radial-gradient(ellipse at top, var(--ja-secondary), transparent),
-    radial-gradient(ellipse at bottom, var(--ja-secondary-light), transparent),
+  background: radial-gradient(ellipse at top, White, transparent),
+    radial-gradient(ellipse at bottom, white, transparent),
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
   background-position: 10.95rem;
   background-size: 200px;
@@ -583,7 +592,10 @@ a {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  -webkit-text-stroke: 1px var(--ja-primary);
+
 }
+
 
 #globe {
   transition: 0.1s;
