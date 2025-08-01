@@ -8,7 +8,8 @@ import Courses from '../components/Courses';
 import { MountainParallax } from '../components/MountainParallax'; // Import the parallax component
 import mountainBackground from '../img/mountain-background.png';
 import mountainMiddle from '../img/mountain-middle.png';
-import mountainForeground from '../img/mountain-foreground.png';
+// import mountainForeground from '../img/mountain-foreground.png';
+import mountainForeground from '../img/jungle-bg.jpg'; // Use a jungle foreground for variety
 
 const HomePage: React.FC = () => {
   useEffect(() => {
@@ -27,11 +28,11 @@ const HomePage: React.FC = () => {
       >
         <div>
           <Title order={1} size="3rem" mb="md">
-            Welcome to Mr. Fire's Website
+            Jefferson Academy Computer Science
           </Title>
           <Text size="xl">
-            Discover amazing content and resources
-          </Text>
+            Welcome to Mr. Fire's Website
+           </Text>
         </div>
       </MountainParallax>
 

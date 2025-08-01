@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <Group className="footer" justify="center" gap="xs" >
       <Text c="school.7" component="span"   style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
 >
-        &nbsp;©{getCurrentYear()}&nbsp;Mr. Eitan Fire&nbsp;
+        &nbsp;©{getCurrentYear()}&nbsp;| Eitan Fire&nbsp;
       </Text>
     </Group>
   );
