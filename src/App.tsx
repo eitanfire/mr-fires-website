@@ -18,6 +18,7 @@ export default function App() {
         <Route path="read-more" element={<FiresIntro />} />
         <Route path="contact" element={<ContactForm />} />
         <Route path="shout-out" element={<MakeAShoutOutForm />} />
-      </Routes>            <Footer />
+      </Routes>            
+      <Footer />
 </MantineProvider>;
 }
