@@ -63,6 +63,8 @@ export const useMountainParallax = (config: ParallaxConfig) => {
     container.style.overflow = 'hidden';
     container.style.width = '100%';
     container.style.marginBottom = '2rem';
+    container.style.isolation = 'isolate'; // Creates new stacking context
+    container.style.zIndex = '1'; // Ensure it doesn't interfere with elements below
 
     // Create layers
     const layerConfigs = [
@@ -104,6 +106,7 @@ export const useMountainParallax = (config: ParallaxConfig) => {
       layer.style.backgroundRepeat = 'no-repeat';
       layer.style.zIndex = layerConfig.zIndex.toString();
       layer.style.willChange = 'transform';
+      layer.style.contain = 'layout style paint'; // Contain the layer effects
 
       layers.push({
         element: layer,

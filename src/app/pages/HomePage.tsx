@@ -8,7 +8,6 @@ import Courses from '../components/Courses';
 import { MountainParallax } from '../components/MountainParallax'; // Import the parallax component
 import mountainBackground from '../img/mountain-background.png';
 import mountainMiddle from '../img/mountain-middle.png';
-// import mountainForeground from '../img/mountain-foreground.png';
 import mountainForeground from '../img/jungle-bg.jpg'; // Use a jungle foreground for variety
 
 const HomePage: React.FC = () => {
@@ -36,9 +35,9 @@ const HomePage: React.FC = () => {
         </div>
       </MountainParallax>
 
-      <Container size="xl">
+      <Container size="xl" >
         <Grid className="accordion">
-          <Grid.Col span={12}>
+          <Grid.Col span={12} >
             <ShoutOutCarousel />
           </Grid.Col>
           
