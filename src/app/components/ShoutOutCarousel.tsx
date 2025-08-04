@@ -22,7 +22,6 @@ interface ShoutOut {
   because?: string;
 }
 
-// Updated ShoutOutCard with school theme colors
 const ShoutOutCard: React.FC<{ to?: string; from?: string; because?: string; id: number }> = ({ to, from, because }) => (
   <Box
     style={{
