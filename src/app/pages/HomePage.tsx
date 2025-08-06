@@ -5,7 +5,7 @@ import Calendar from "../components/Calendar";
 import BlockDay from "../components/BlockDay";
 import ShoutOutCarousel from "../components/ShoutOutCarousel";
 import Courses from '../components/Courses';
-import { MountainParallax } from '../components/MountainParallax'; // Import the parallax component
+import { Parallax } from '../components/Parallax'; // Import the parallax component
 import mountainBackground from '../img/mountain-background.png';
 import mountainMiddle from '../img/mountain-middle.png';
 import mountainForeground from '../img/jungle-bg.jpg'; // Use a jungle foreground for variety
@@ -18,7 +18,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       {/* Mountain Parallax Hero Section */}
-      <MountainParallax
+      <Parallax
                backgroundImageUrl={mountainBackground}
         middleImageUrl={mountainMiddle}
         foregroundImageUrl={mountainForeground}
@@ -33,7 +33,7 @@ const HomePage: React.FC = () => {
             Welcome to Mr. Fire's Website
            </Text>
         </div>
-      </MountainParallax>
+      </Parallax>
 
       <Container size="xl" >
         <Grid className="accordion">

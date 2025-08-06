@@ -12,8 +12,8 @@ interface ParallaxLayer {
   speed: number;
 }
 
-// Custom React Hook for Mountain Parallax
-export const useMountainParallax = (config: ParallaxConfig) => {
+// Custom React Hook for Parallax
+export const useParallax = (config: ParallaxConfig) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const layersRef = useRef<ParallaxLayer[]>([]);
   const isScrollingRef = useRef(false);
@@ -181,7 +181,7 @@ export const useMountainParallax = (config: ParallaxConfig) => {
 };
 
 // React Component Version with Enhanced Text Contrast
-interface MountainParallaxProps {
+interface ParallaxProps {
   backgroundImageUrl: string;
   middleImageUrl: string;
   foregroundImageUrl: string;
@@ -192,7 +192,7 @@ interface MountainParallaxProps {
   textBackgroundStyle?: 'none' | 'overlay' | 'glass' | 'solid' | 'gradient';
 }
 
-export const MountainParallax: React.FC<MountainParallaxProps> = ({
+export const Parallax: React.FC<ParallaxProps> = ({
   backgroundImageUrl,
   middleImageUrl,
   foregroundImageUrl,
@@ -202,7 +202,7 @@ export const MountainParallax: React.FC<MountainParallaxProps> = ({
   textPosition = 'center',
   textBackgroundStyle = 'glass'
 }) => {
-  const containerRef = useMountainParallax({
+  const containerRef = useParallax({
     backgroundImageUrl,
     middleImageUrl,
     foregroundImageUrl,
@@ -310,20 +310,20 @@ export const MountainParallax: React.FC<MountainParallaxProps> = ({
         }
       }
       
-      .mountain-parallax:hover .parallax-background {
+      .parallax:hover .parallax-background {
         filter: brightness(0.85) contrast(1.15) !important;
       }
       
-      .mountain-parallax:hover .parallax-middle {
+      .parallax:hover .parallax-middle {
         filter: brightness(0.95) contrast(1.1) !important;
       }
       
-      .mountain-parallax:hover .parallax-foreground {
+      .parallax:hover .parallax-foreground {
         filter: brightness(1.05) contrast(1.05) !important;
       }
       
       @media (max-width: 768px) {
-        .mountain-parallax .parallax-text {
+        .parallax .parallax-text {
           padding: 1rem !important;
           font-size: 0.95rem !important;
           max-width: 95% !important;
@@ -340,7 +340,7 @@ export const MountainParallax: React.FC<MountainParallaxProps> = ({
   return (
     <div 
       ref={containerRef} 
-      className={`mountain-parallax ${className}`}
+      className={`parallax ${className}`}
     >
       {children && (
         <div 
