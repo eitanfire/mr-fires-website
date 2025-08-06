@@ -57,44 +57,49 @@ export const useMountainParallax = (config: ParallaxConfig) => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Setup container styles
+    // Setup container styles with improved visual effects
     container.style.position = 'relative';
     container.style.height = config.containerHeight || '60vh';
     container.style.overflow = 'hidden';
     container.style.width = '100%';
     container.style.marginBottom = '2rem';
-    container.style.isolation = 'isolate'; // Creates new stacking context
-    container.style.zIndex = '1'; // Ensure it doesn't interfere with elements below
+    container.style.isolation = 'isolate';
+    container.style.zIndex = '1';
+    container.style.borderRadius = '8px';
+    container.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.3)';
 
-    // Create layers
+    // Create layers with enhanced visual effects
     const layerConfigs = [
       { 
         imageUrl: config.backgroundImageUrl, 
         speed: 0.2, 
         zIndex: 1,
-        className: 'parallax-background'
+        className: 'parallax-background',
+        filter: 'brightness(0.8) contrast(1.1)'
       },
       { 
         imageUrl: config.middleImageUrl, 
         speed: 0.5, 
         zIndex: 2,
-        className: 'parallax-middle'
+        className: 'parallax-middle',
+        filter: 'brightness(0.9) contrast(1.05)'
       },
       { 
         imageUrl: config.foregroundImageUrl, 
         speed: 0.8, 
         zIndex: 3,
-        className: 'parallax-foreground'
+        className: 'parallax-foreground',
+        filter: 'brightness(1) contrast(1)'
       }
     ];
 
     const layers: ParallaxLayer[] = [];
 
-    layerConfigs.forEach((layerConfig) => {
+    layerConfigs.forEach((layerConfig, index) => {
       const layer = document.createElement('div');
       layer.className = layerConfig.className;
       
-      // Layer styles
+      // Enhanced layer styles
       layer.style.position = 'absolute';
       layer.style.top = '0';
       layer.style.left = '0';
@@ -106,7 +111,11 @@ export const useMountainParallax = (config: ParallaxConfig) => {
       layer.style.backgroundRepeat = 'no-repeat';
       layer.style.zIndex = layerConfig.zIndex.toString();
       layer.style.willChange = 'transform';
-      layer.style.contain = 'layout style paint'; // Contain the layer effects
+      layer.style.contain = 'layout style paint';
+      layer.style.filter = layerConfig.filter;
+      
+      // Add subtle animations for depth
+      layer.style.transition = 'filter 0.3s ease';
 
       layers.push({
         element: layer,
@@ -115,6 +124,33 @@ export const useMountainParallax = (config: ParallaxConfig) => {
 
       container.appendChild(layer);
     });
+
+    // Add gradient overlay for better text contrast
+    const gradientOverlay = document.createElement('div');
+    gradientOverlay.className = 'parallax-gradient-overlay';
+    gradientOverlay.style.position = 'absolute';
+    gradientOverlay.style.top = '0';
+    gradientOverlay.style.left = '0';
+    gradientOverlay.style.width = '100%';
+    gradientOverlay.style.height = '100%';
+    gradientOverlay.style.background = `
+      linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.2) 30%,
+        rgba(0, 0, 0, 0.1) 60%,
+        rgba(0, 0, 0, 0.3) 100%
+      ),
+      radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.3) 100%
+      )
+    `;
+    gradientOverlay.style.zIndex = '4';
+    gradientOverlay.style.pointerEvents = 'none';
+    container.appendChild(gradientOverlay);
 
     layersRef.current = layers;
 
@@ -134,6 +170,9 @@ export const useMountainParallax = (config: ParallaxConfig) => {
           layer.element.parentNode.removeChild(layer.element);
         }
       });
+      if (gradientOverlay.parentNode) {
+        gradientOverlay.parentNode.removeChild(gradientOverlay);
+      }
       layersRef.current = [];
     };
   }, [config, updateParallax, handleScroll, handleResize]);
@@ -141,7 +180,7 @@ export const useMountainParallax = (config: ParallaxConfig) => {
   return containerRef;
 };
 
-// React Component Version
+// React Component Version with Enhanced Text Contrast
 interface MountainParallaxProps {
   backgroundImageUrl: string;
   middleImageUrl: string;
@@ -149,6 +188,8 @@ interface MountainParallaxProps {
   containerHeight?: string;
   className?: string;
   children?: React.ReactNode;
+  textPosition?: 'center' | 'top' | 'bottom' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  textBackgroundStyle?: 'none' | 'overlay' | 'glass' | 'solid' | 'gradient';
 }
 
 export const MountainParallax: React.FC<MountainParallaxProps> = ({
@@ -157,7 +198,9 @@ export const MountainParallax: React.FC<MountainParallaxProps> = ({
   foregroundImageUrl,
   containerHeight = '60vh',
   className = '',
-  children
+  children,
+  textPosition = 'center',
+  textBackgroundStyle = 'glass'
 }) => {
   const containerRef = useMountainParallax({
     backgroundImageUrl,
@@ -166,6 +209,134 @@ export const MountainParallax: React.FC<MountainParallaxProps> = ({
     containerHeight
   });
 
+  const getPositionStyles = (position: string) => {
+    const baseStyles = {
+      position: 'absolute' as const,
+      zIndex: 15,
+      padding: '2rem',
+      maxWidth: '90%',
+    };
+
+    switch (position) {
+      case 'top':
+        return { ...baseStyles, top: '10%', left: '50%', transform: 'translateX(-50%)' };
+      case 'bottom':
+        return { ...baseStyles, bottom: '10%', left: '50%', transform: 'translateX(-50%)' };
+      case 'left':
+        return { ...baseStyles, left: '5%', top: '50%', transform: 'translateY(-50%)' };
+      case 'right':
+        return { ...baseStyles, right: '5%', top: '50%', transform: 'translateY(-50%)' };
+      case 'top-left':
+        return { ...baseStyles, top: '10%', left: '5%' };
+      case 'top-right':
+        return { ...baseStyles, top: '10%', right: '5%' };
+      case 'bottom-left':
+        return { ...baseStyles, bottom: '10%', left: '5%' };
+      case 'bottom-right':
+        return { ...baseStyles, bottom: '10%', right: '5%' };
+      default: // center
+        return { 
+          ...baseStyles, 
+          top: '50%', 
+          left: '50%', 
+          transform: 'translate(-50%, -50%)',
+          textAlign: 'center' as const
+        };
+    }
+  };
+
+  const getBackgroundStyles = (style: string) => {
+    switch (style) {
+      case 'overlay':
+        return {
+          background: 'rgba(0, 0, 0, 0.6)',
+          borderRadius: '8px',
+        };
+      case 'glass':
+        return {
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(12px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(12px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: '12px',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+        };
+      case 'solid':
+        return {
+          background: 'rgba(0, 0, 0, 0.8)',
+          borderRadius: '8px',
+          border: '2px solid rgba(255, 255, 255, 0.1)',
+        };
+      case 'gradient':
+        return {
+          background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%)',
+          borderRadius: '12px',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+        };
+      case 'none':
+      default:
+        return {};
+    }
+  };
+
+  const textStyles = {
+    ...getPositionStyles(textPosition),
+    ...getBackgroundStyles(textBackgroundStyle),
+    color: 'white',
+    textShadow: `
+      2px 2px 4px rgba(0, 0, 0, 0.8),
+      1px 1px 2px rgba(0, 0, 0, 0.9),
+      0 0 8px rgba(0, 0, 0, 0.5)
+    `,
+    fontSize: '1.1rem',
+    lineHeight: '1.6',
+    fontWeight: '500',
+    letterSpacing: '0.5px',
+    animation: 'fadeInUp 1s ease-out',
+  };
+
+  // Add CSS animation keyframes
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translate(-50%, -40%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+      
+      .mountain-parallax:hover .parallax-background {
+        filter: brightness(0.85) contrast(1.15) !important;
+      }
+      
+      .mountain-parallax:hover .parallax-middle {
+        filter: brightness(0.95) contrast(1.1) !important;
+      }
+      
+      .mountain-parallax:hover .parallax-foreground {
+        filter: brightness(1.05) contrast(1.05) !important;
+      }
+      
+      @media (max-width: 768px) {
+        .mountain-parallax .parallax-text {
+          padding: 1rem !important;
+          font-size: 0.95rem !important;
+          max-width: 95% !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <div 
       ref={containerRef} 
@@ -173,17 +344,8 @@ export const MountainParallax: React.FC<MountainParallaxProps> = ({
     >
       {children && (
         <div 
-          style={{
-            position: 'relative',
-            zIndex: 10,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
-            color: 'white',
-            textAlign: 'center',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
-          }}
+          className="parallax-text"
+          style={textStyles}
         >
           {children}
         </div>
