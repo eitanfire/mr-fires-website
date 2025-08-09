@@ -1,0 +1,25 @@
+{
+  "currentcoursedata": [
+    {
+      "id": 0,
+      "name": "Intro to Computers 1",
+      "warmUpURL": "https://docs.google.com/document/d/1dixlF0rjLKa4MbYwi3-wLcyrtQVPbeKcDc1Y4W--9W8/edit?usp=sharing",
+      "canvasPage": "https://jajags.instructure.com/courses/3142",
+      "extra": "https://docs.google.com/document/d/18w1X4JgZc1-TpHTqggAAVU4nUiZhITBSWhOe-zOmD-0/edit?usp=sharing"
+    },
+    {
+      "id": 1,
+      "name": "Technology",
+      "currentWarmUpURL": "https://classroom.google.com/c/NzA0Njk0NjM5NjA2/a/NzA0Njk0NjM5Njc4/details",
+      "currentGoogleClassroomPage": "https://classroom.google.com/w/NzA0Njk0NjM5NjA2/t/all",
+      "currentExtra": "https://classroom.google.com/c/NzA0Njk0NjM5NjA2/a/NjkyMDAyNDc0MzI0/details"
+    },
+    {
+      "id": 10,
+      "name": "Government",
+      "currentWarmUpURL": "https://classroom.google.com/c/NzA0MjAzOTYwNjk5/a/NzE0NDc0NjIyNTc3/details",
+      "currentGoogleClassroomPage": "https://classroom.google.com/w/NzA0MjAzOTYwNjk5/t/all",
+      "currentExtra": "https://classroom.google.com/c/NzA0MjAzOTYwNjk5/a/NzA0MjAzOTYwNzgw/details"
+    }
+  ]
+}

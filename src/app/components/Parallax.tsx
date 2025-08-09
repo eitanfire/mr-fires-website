@@ -95,7 +95,7 @@ export const useParallax = (config: ParallaxConfig) => {
 
     const layers: ParallaxLayer[] = [];
 
-    layerConfigs.forEach((layerConfig, index) => {
+    layerConfigs.forEach((layerConfig) => {
       const layer = document.createElement('div');
       layer.className = layerConfig.className;
       
@@ -213,34 +213,110 @@ export const Parallax: React.FC<ParallaxProps> = ({
     const baseStyles = {
       position: 'absolute' as const,
       zIndex: 15,
-      padding: '2rem',
-      maxWidth: '90%',
+      padding: '1.5rem 2rem',
+      boxSizing: 'border-box' as const,
+      display: 'flex',
+      flexDirection: 'column' as const,
+      justifyContent: 'center',
+      wordWrap: 'break-word' as const,
+      overflowWrap: 'break-word' as const,
     };
 
     switch (position) {
       case 'top':
-        return { ...baseStyles, top: '10%', left: '50%', transform: 'translateX(-50%)' };
+        return { 
+          ...baseStyles, 
+          top: '8%', 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          alignItems: 'center',
+          textAlign: 'center' as const,
+          maxWidth: '95%',
+          minWidth: '200px'
+        };
       case 'bottom':
-        return { ...baseStyles, bottom: '10%', left: '50%', transform: 'translateX(-50%)' };
+        return { 
+          ...baseStyles, 
+          bottom: '8%', 
+          left: '50%', 
+          transform: 'translateX(-50%)',
+          alignItems: 'center',
+          textAlign: 'center' as const,
+          maxWidth: '95%',
+          minWidth: '200px'
+        };
       case 'left':
-        return { ...baseStyles, left: '5%', top: '50%', transform: 'translateY(-50%)' };
+        return { 
+          ...baseStyles, 
+          left: '5%', 
+          top: '50%', 
+          transform: 'translateY(-50%)',
+          alignItems: 'flex-start',
+          textAlign: 'left' as const,
+          maxWidth: '60%',
+          minWidth: '200px'
+        };
       case 'right':
-        return { ...baseStyles, right: '5%', top: '50%', transform: 'translateY(-50%)' };
+        return { 
+          ...baseStyles, 
+          right: '5%', 
+          top: '50%', 
+          transform: 'translateY(-50%)',
+          alignItems: 'flex-end',
+          textAlign: 'right' as const,
+          maxWidth: '60%',
+          minWidth: '200px'
+        };
       case 'top-left':
-        return { ...baseStyles, top: '10%', left: '5%' };
+        return { 
+          ...baseStyles, 
+          top: '8%', 
+          left: '5%',
+          alignItems: 'flex-start',
+          textAlign: 'left' as const,
+          maxWidth: '60%',
+          minWidth: '200px'
+        };
       case 'top-right':
-        return { ...baseStyles, top: '10%', right: '5%' };
+        return { 
+          ...baseStyles, 
+          top: '8%', 
+          right: '5%',
+          alignItems: 'flex-end',
+          textAlign: 'right' as const,
+          maxWidth: '60%',
+          minWidth: '200px'
+        };
       case 'bottom-left':
-        return { ...baseStyles, bottom: '10%', left: '5%' };
+        return { 
+          ...baseStyles, 
+          bottom: '8%', 
+          left: '5%',
+          alignItems: 'flex-start',
+          textAlign: 'left' as const,
+          maxWidth: '60%',
+          minWidth: '200px'
+        };
       case 'bottom-right':
-        return { ...baseStyles, bottom: '10%', right: '5%' };
+        return { 
+          ...baseStyles, 
+          bottom: '8%', 
+          right: '5%',
+          alignItems: 'flex-end',
+          textAlign: 'right' as const,
+          maxWidth: '60%',
+          minWidth: '200px'
+        };
       default: // center
         return { 
           ...baseStyles, 
           top: '50%', 
           left: '50%', 
           transform: 'translate(-50%, -50%)',
-          textAlign: 'center' as const
+          alignItems: 'center',
+          textAlign: 'center' as const,
+          maxWidth: '95%',
+          minWidth: '200px'
         };
     }
   };
@@ -251,6 +327,8 @@ export const Parallax: React.FC<ParallaxProps> = ({
         return {
           background: 'rgba(0, 0, 0, 0.6)',
           borderRadius: '8px',
+          width: 'fit-content',
+          maxWidth: '100%',
         };
       case 'glass':
         return {
@@ -260,22 +338,31 @@ export const Parallax: React.FC<ParallaxProps> = ({
           border: '1px solid rgba(255, 255, 255, 0.2)',
           borderRadius: '12px',
           boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
+          width: 'fit-content',
+          maxWidth: '100%',
         };
       case 'solid':
         return {
           background: 'rgba(0, 0, 0, 0.8)',
           borderRadius: '8px',
           border: '2px solid rgba(255, 255, 255, 0.1)',
+          width: 'fit-content',
+          maxWidth: '100%',
         };
       case 'gradient':
         return {
           background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%)',
           borderRadius: '12px',
           border: '1px solid rgba(255, 255, 255, 0.1)',
+          width: 'fit-content',
+          maxWidth: '100%',
         };
       case 'none':
       default:
-        return {};
+        return {
+          width: 'fit-content',
+          maxWidth: '100%',
+        };
     }
   };
 
@@ -324,9 +411,37 @@ export const Parallax: React.FC<ParallaxProps> = ({
       
       @media (max-width: 768px) {
         .parallax .parallax-text {
-          padding: 1rem !important;
+          padding: 1rem 1.5rem !important;
           font-size: 0.95rem !important;
           max-width: 95% !important;
+          min-width: 150px !important;
+        }
+      }
+      
+      @media (max-height: 500px) and (min-width: 600px) {
+        .parallax .parallax-text {
+          padding: 0.75rem 1.25rem !important;
+          font-size: 0.9rem !important;
+          max-width: 90% !important;
+          min-width: 200px !important;
+          line-height: 1.4 !important;
+        }
+      }
+      
+      @media (min-width: 650px) and (max-width: 1020px) and (min-height: 500px) {
+        .parallax .parallax-text {
+          padding: 1.25rem 1.5rem !important;
+          font-size: 1rem !important;
+          max-width: 85% !important;
+          min-width: 180px !important;
+          line-height: 1.5 !important;
+        }
+      }
+      
+      @media (min-width: 1021px) {
+        .parallax .parallax-text {
+          padding: 1.5rem 2rem !important;
+          min-width: 200px !important;
         }
       }
     `;
