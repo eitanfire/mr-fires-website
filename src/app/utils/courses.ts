@@ -4,6 +4,8 @@ export const fallCourses: CourseData[] = [
   {
     id: 0,
     icon: "📱",
+    topBanner: "src/app/img/banners/intro-to-computers-banner.png",
+    bottomBanner: "src/app/img/banners/intro-to-computers-banner.png",
     jACourseTitle: "Intro to Computers 1",
     jeffcoCourseTitle: "Computer Science Foundations I",
     currentWarmUpURL:
@@ -54,7 +56,7 @@ export const fallCourses: CourseData[] = [
   },
   {
     id: 5,
-icon: "src/app/img/icons/cybersecurity-icon.png",
+    icon: "src/app/img/icons/cybersecurity-icon.png",
     jACourseTitle: "Cybersecurity I",
     jeffcoCourseTitle: "Cybersecurity I",
     currentWarmUpURL: null,

@@ -497,6 +497,7 @@ a {
   padding-bottom: 0.75rem;
 }
 
+.course-container,
 .eitan-info-box-container {
   background-color: var(--ja-secondary-light);
   background-position: 80% 80%;
@@ -550,6 +551,8 @@ a {
   transform: rotate(0.5turn);
 }
 
+.course-item,
+.course-container,
 .eitan-info-box-container,
 .time {
   font-weight: 600;
@@ -595,7 +598,6 @@ a {
   -webkit-text-stroke: 1px var(--ja-primary);
 
 }
-
 
 #globe {
   transition: 0.1s;
