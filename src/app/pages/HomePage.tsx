@@ -17,16 +17,15 @@ const HomePage: React.FC = () => {
   
   return (
     <>
-      {/* Mountain Parallax Hero Section */}
       <Parallax
                backgroundImageUrl={mountainBackground}
         middleImageUrl={mountainMiddle}
         foregroundImageUrl={mountainForeground}
-        containerHeight="70vh"
+        containerHeight="50vh"
         className="hero-parallax"
       >
         <div>
-          <Title order={1} size="3rem" mb="md">
+          <Title order={1} size="3rem" >
             Jefferson Academy Computer Science
           </Title>
           <Text size="xl">
@@ -35,7 +34,7 @@ const HomePage: React.FC = () => {
         </div>
       </Parallax>
 
-      <Container size="xl" >
+      <Container size="xxl" >
         <Grid className="accordion">
           <Grid.Col span={12} >
             <ShoutOutCarousel />
@@ -51,16 +50,16 @@ const HomePage: React.FC = () => {
             </Title>
             <Relationships />
           </Grid.Col>
-          
-          <Grid.Col 
+                    <Grid.Col 
             span={{ base: 12, lg: 9 }}
+                    >
+            <Calendar />
+          </Grid.Col>
+          <Grid.Col 
+            // span={{ base: 12, lg: 9 }}
             className="accordion"
           >
             <Courses />
-          </Grid.Col>
-          
-          <Grid.Col span={12} mt="md">
-            <Calendar />
           </Grid.Col>
         </Grid>
       </Container>
