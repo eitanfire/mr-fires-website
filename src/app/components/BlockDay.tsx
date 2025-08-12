@@ -32,11 +32,11 @@ const BlockDay: React.FC<BlockDayProps> = () => {
           <Grid.Col span={12}>
             <span>Today is {weekday}.</span>
           </Grid.Col>
-          {aDayBDay && (
+          {/* {aDayBDay && (
             <Grid.Col span={12}>
               It's a{typeof aDayBDay === "string" ? aDayBDay[0] : ""} {brightDay} day.
             </Grid.Col>
-          )}
+          )} */}
         </Grid>
       </Container>
     </animated.div>
