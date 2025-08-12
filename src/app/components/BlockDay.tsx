@@ -19,11 +19,11 @@ const BlockDay: React.FC<BlockDayProps> = () => {
     setToggle(true);
   }, []);
 
-  const brightDay: React.ReactElement = (
-    <span id="aBAB">
-      {typeof aDayBDay === "string" ? aDayBDay.slice(1) : ""}
-    </span>
-  );
+  // const brightDay: React.ReactElement = (
+  //   <span id="aBAB">
+  //     {typeof aDayBDay === "string" ? aDayBDay.slice(1) : ""}
+  //   </span>
+  // );
 
   return (
     <animated.div style={animatedStyle}>
