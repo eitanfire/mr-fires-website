@@ -28,15 +28,15 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
         <Image
           src={icon}
           alt={alt}
-          width={selectedCourse !== null ? 80 : 120}
-          height={selectedCourse !== null ? 80 : 120}
+          width={selectedCourse !== null ? 50 : 70}
+          height={selectedCourse !== null ? 50 : 70}
           fit="contain"
           style={{ 
             flexShrink: 0,
-            borderRadius: selectedCourse !== null ? '12px' : '16px',
+            borderRadius: '10px',
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            padding: selectedCourse !== null ? '8px' : '12px',
-            transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+            padding: selectedCourse !== null ? '5px' : '7px',
+            transition: 'all 0.3s ease'
           }}
         />
       );
@@ -44,16 +44,16 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
     return (
       <Text 
         style={{ 
-          fontSize: selectedCourse !== null ? '80px' : '120px', 
+          fontSize: selectedCourse !== null ? '50px' : '70px', 
           lineHeight: 1,
           background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: selectedCourse !== null ? '12px' : '16px',
-          width: selectedCourse !== null ? '80px' : '120px',
-          height: selectedCourse !== null ? '80px' : '120px',
+          borderRadius: '10px',
+          width: selectedCourse !== null ? '50px' : '70px',
+          height: selectedCourse !== null ? '50px' : '70px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+          transition: 'all 0.3s ease'
         }}
       >
         {icon}
@@ -77,67 +77,71 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
           .course-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            max-width: 1400px;
+            grid-auto-rows: 1fr;
+            gap: 10px;
+            max-width: 1000px;
             margin: 0 auto;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            align-items: stretch;
           }
 
           @media (max-width: 900px) {
             .course-container {
               grid-template-columns: 1fr;
+              grid-auto-rows: auto;
             }
           }
 
           .course-item {
             display: flex;
+            flex-direction: row; /* keep reveal on right */
             align-items: center;
             justify-content: center;
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.3);
+            height: 120px; /* smaller height */
           }
 
           .course-item:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
             border-color: rgba(59, 130, 246, 0.5);
           }
 
           .course-item.selected {
             border-color: rgb(59, 130, 246);
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.95));
-            box-shadow: 0 16px 48px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 24px rgba(59, 130, 246, 0.3);
           }
 
           .course-trigger {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 32px;
-            flex: 1;
-            gap: 16px;
-            transition: all 0.4s ease;
+            justify-content: center; /* center vertically */
+            padding: 12px;
+            min-width: 120px;
+            gap: 8px;
             text-align: center;
+            height: 100%; /* center vertically in panel */
           }
 
           .course-title {
-            font-size: 24px;
+            font-size: 14px;
             font-weight: 700;
             line-height: 1.1;
             color: #1e293b;
             margin: 0;
-            transition: font-size 0.4s ease;
+            transition: font-size 0.3s ease;
           }
 
           .course-title.expanded {
-            font-size: 32px;
+            font-size: 16px;
           }
 
           .course-details {
@@ -145,29 +149,29 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
             max-width: 0;
             opacity: 0;
             overflow: hidden;
-            transition: all 0.5s ease;
+            transition: all 0.4s ease;
           }
 
           .course-item.selected .course-details {
-            flex: 0 0 400px;
-            max-width: 400px;
+            flex: 1 0 auto;
+            max-width: 300px;
             opacity: 1;
           }
 
           .course-details-inner {
-            padding: 32px;
-            min-width: 300px;
+            padding: 12px;
+            min-width: 200px;
           }
 
           .course-subtitle {
-            font-size: 22px;
+            font-size: 14px;
             color: #64748b;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
           }
 
           .course-buttons {
             display: flex;
-            gap: 12px;
+            gap: 6px;
             flex-wrap: wrap;
             align-items: center;
           }
@@ -175,69 +179,54 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
           @media (max-width: 768px) {
             .course-item {
               flex-direction: column;
+              height: auto;
             }
-
             .course-details {
               max-height: 0;
               max-width: none;
               width: 100%;
               transform: translateY(-10px);
             }
-
             .course-item.selected .course-details {
               max-height: fit-content;
               transform: translateY(0);
             }
-
             .course-title {
-              font-size: 18px;
+              font-size: 14px;
             }
           }
         `}
       </style>
 
-      <Text
-        style={{
-          fontSize: selectedCourse !== null ? '40px' : '56px',
-          fontWeight: 700,
-          textAlign: 'center',
-          color: 'white',
-          marginBottom: selectedCourse !== null ? '32px' : '40px',
-          textShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-          transition: 'all 0.4s ease'
-        }}
-      >
-      </Text>
-<Center mb="xl">
-  <Box
-    style={{
-      background: 'linear-gradient(135deg, #f8f7f2, #c4b876, #b1a363, #D7CD89, #000000 )',
-      padding: '16px 32px',
-      borderRadius: '12px',
-      boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
-    }}
-  >
-    <Title
-      order={2}
-      style={{
-        color: 'white',
-        fontWeight: 700,
-        fontSize: 28,
-        textAlign: 'center',
-        textShadow: '0 2px 8px rgba(0,0,0,0.25)',
-        WebkitTextStroke: '1px orange',
-        WebkitTextFillColor: 'white', // Fill color
-      }}
-    >
-      Current Computer Science Courses
-    </Title>
-  </Box>
-</Center>
-
+      <Center mb="md">
+        <Box
+          style={{
+            background: 'linear-gradient(135deg, #f8f7f2, #c4b876, #b1a363, #D7CD89, #000000 )',
+            padding: '8px 16px',
+            borderRadius: '10px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          }}
+        >
+          <Title
+            order={2}
+            style={{
+              color: 'white',
+              fontWeight: 700,
+              fontSize: 20,
+              textAlign: 'center',
+              textShadow: '0 2px 8px rgba(0,0,0,0.25)',
+              WebkitTextStroke: '1px orange',
+              WebkitTextFillColor: 'white',
+            }}
+          >
+            Current Computer Science Courses
+          </Title>
+        </Box>
+      </Center>
 
       <div className="course-container">
         {[firstColumn, secondColumn].map((column, colIndex) => (
-          <div key={colIndex} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div key={colIndex} style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
             {column.map((course, index) => {
               const courseIndex = colIndex * 3 + index;
               return (
@@ -261,10 +250,10 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
 
                       <Group className="course-buttons" align="center">
                         <Button
-                          leftSection={<IconExternalLink size={20} />}
+                          leftSection={<IconExternalLink size={18} />}
                           variant="gradient"
                           gradient={{ from: 'blue', to: 'purple' }}
-                          size="lg"
+                          size="xs"
                           radius="xl"
                           onClick={(e) => handleLinkClick(course.canvasPage, e)}
                         >
@@ -273,10 +262,10 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
                         
                         {course.currentWarmUpURL && (
                           <Button
-                            leftSection={<IconExternalLink size={20} />}
+                            leftSection={<IconExternalLink size={18} />}
                             variant="gradient"
                             gradient={{ from: 'green', to: 'teal' }}
-                            size="lg"
+                            size="xs"
                             radius="xl"
                             onClick={(e) => handleLinkClick(course.currentWarmUpURL!, e)}
                           >
@@ -285,10 +274,10 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
                         )}
                         
                         <Button
-                          leftSection={<IconExternalLink size={20} />}
+                          leftSection={<IconExternalLink size={18} />}
                           variant="gradient"
                           gradient={{ from: 'gray', to: 'dark' }}
-                          size="lg"
+                          size="xs"
                           radius="xl"
                           onClick={(e) => handleLinkClick(course.extra, e)}
                         >
