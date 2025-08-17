@@ -13,10 +13,27 @@ import { CourseData } from '../types/course';
 
 interface CourseAccordionProps {
   courses: CourseData[];
+  includeIds?: number[];
+  excludeIds?: number[];
 }
 
-const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
+const CourseAccordion: React.FC<CourseAccordionProps> = ({ 
+  courses, 
+  includeIds, 
+  excludeIds = [3, 4, 5]
+}) => {
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
+
+  const filteredCourses = courses.filter(course => {
+    if (includeIds) {
+      return includeIds.includes(course.id);
+    }
+    
+    const isInRange = course.id >= 0 && course.id <= 6;
+    const isNotExcluded = !excludeIds.includes(course.id);
+    
+    return isInRange && isNotExcluded;
+  });
 
   const isIconUrl = (icon: string): boolean => {
     return icon.startsWith('src/') || icon.startsWith('http');
@@ -67,8 +84,8 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const firstColumn = courses.slice(0, 3);
-  const secondColumn = courses.slice(3, 6);
+  const firstColumn = filteredCourses.slice(0, Math.ceil(filteredCourses.length / 2));
+  const secondColumn = filteredCourses.slice(Math.ceil(filteredCourses.length / 2));
 
   return (
     <Box>
@@ -93,7 +110,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
 
           .course-item {
             display: flex;
-            flex-direction: row; /* keep reveal on right */
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.8));
@@ -104,7 +121,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
             backdrop-filter: blur(20px);
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.3);
-            height: 120px; /* smaller height */
+            height: 120px;
           }
 
           .course-item:hover {
@@ -123,12 +140,12 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* center vertically */
+            justify-content: center;
             padding: 12px;
             min-width: 120px;
             gap: 8px;
             text-align: center;
-            height: 100%; /* center vertically in panel */
+            height: 100%;
           }
 
           .course-title {
@@ -154,32 +171,38 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
 
           .course-item.selected .course-details {
             flex: 1 0 auto;
-            max-width: 300px;
+            max-width: 290px;
             opacity: 1;
           }
 
           .course-details-inner {
-            padding: 12px;
+            padding: 10px 12px;
             min-width: 200px;
+            max-width: 280px;
           }
 
           .course-subtitle {
-            font-size: 14px;
+            font-size: 13px;
             color: #64748b;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            line-height: 1.2;
           }
 
           .course-buttons {
             display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            align-items: center;
+            gap: 4px;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: flex-start;
           }
 
           @media (max-width: 768px) {
             .course-item {
               flex-direction: column;
               height: auto;
+            }
+            .course-trigger {
+              align-items: center;
             }
             .course-details {
               max-height: 0;
@@ -189,10 +212,25 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
             }
             .course-item.selected .course-details {
               max-height: fit-content;
+              max-width: none;
               transform: translateY(0);
             }
             .course-title {
               font-size: 14px;
+              text-align: center;
+            }
+            .course-buttons {
+              gap: 3px;
+              justify-content: center;
+              flex-wrap: nowrap;
+            }
+            .course-details-inner {
+              padding: 8px;
+              max-width: none;
+              text-align: center;
+            }
+            .course-subtitle {
+              text-align: center;
             }
           }
         `}
@@ -228,7 +266,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
         {[firstColumn, secondColumn].map((column, colIndex) => (
           <div key={colIndex} style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
             {column.map((course, index) => {
-              const courseIndex = colIndex * 3 + index;
+              const courseIndex = colIndex * Math.ceil(filteredCourses.length / 2) + index;
               return (
                 <div 
                   key={course.id}
@@ -248,40 +286,43 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({ courses }) => {
                         {course.jeffcoCourseTitle}
                       </Text>
 
-                      <Group className="course-buttons" align="center">
+                      <Group className="course-buttons" align="flex-start">
                         <Button
-                          leftSection={<IconExternalLink size={18} />}
+                          leftSection={<IconExternalLink size={16} />}
                           variant="gradient"
                           gradient={{ from: 'blue', to: 'purple' }}
                           size="xs"
                           radius="xl"
                           onClick={(e) => handleLinkClick(course.canvasPage, e)}
+                          style={{ fontSize: '11px', minWidth: 'auto' }}
                         >
-                          Canvas Course
+                          Canvas
                         </Button>
                         
                         {course.currentWarmUpURL && (
                           <Button
-                            leftSection={<IconExternalLink size={18} />}
+                            leftSection={<IconExternalLink size={16} />}
                             variant="gradient"
                             gradient={{ from: 'green', to: 'teal' }}
                             size="xs"
                             radius="xl"
                             onClick={(e) => handleLinkClick(course.currentWarmUpURL!, e)}
+                            style={{ fontSize: '11px', minWidth: 'auto' }}
                           >
-                            Current Warm-up
+                            Warm-up
                           </Button>
                         )}
                         
                         <Button
-                          leftSection={<IconExternalLink size={18} />}
+                          leftSection={<IconExternalLink size={16} />}
                           variant="gradient"
                           gradient={{ from: 'gray', to: 'dark' }}
                           size="xs"
                           radius="xl"
                           onClick={(e) => handleLinkClick(course.extra, e)}
+                          style={{ fontSize: '11px', minWidth: 'auto' }}
                         >
-                          Resources for Extra Credit
+                          Extra Credit
                         </Button>
                       </Group>
                     </div>
