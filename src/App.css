@@ -46,12 +46,8 @@ img {
 }
 
 #Header {
-  /* Credit the author
-Crediting authors is rewarding. Please use the following credit line in your project:
-
-
-ID 133420539 © Marina Vorontsova | Dreamstime.com */
-/* background-image: url("/src/app/img/dreamstime_xxl_133420539.jpg"); */
+ margin-bottom: 0 !important;
+  padding-bottom: 0;
   background: url("./app/img/dreamstime_xxl_133420539.jpg") no-repeat,
     linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)),
     radial-gradient(ellipse at top, var(--ja-secondary), transparent),
@@ -551,6 +547,8 @@ a {
   transform: rotate(0.5turn);
 }
 
+.header-title,
+.current-courses-title,
 .course-item,
 .course-container,
 .eitan-info-box-container,
@@ -564,6 +562,12 @@ a {
   border: 4px solid var(--ja-primary);
   text-align: center;
   background-color: var(--ja-secondary);
+}
+
+.current-courses-title {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .time-text {

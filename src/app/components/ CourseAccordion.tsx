@@ -236,27 +236,17 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
         `}
       </style>
 
-      <Center mb="md">
+      <Center className="current-courses-title" mb="md">
         <Box
           style={{
-            background: 'linear-gradient(135deg, #f8f7f2, #c4b876, #b1a363, #D7CD89, #000000 )',
+            // background: 'linear-gradient(135deg, #f8f7f2, #c4b876, #b1a363, #D7CD89, #000000 )',
             padding: '8px 16px',
-            borderRadius: '10px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            // borderRadius: '10px',
+            // boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
           }}
         >
           <Title
-            order={2}
-            style={{
-              color: 'white',
-              fontWeight: 700,
-              fontSize: 20,
-              textAlign: 'center',
-              textShadow: '0 2px 8px rgba(0,0,0,0.25)',
-              WebkitTextStroke: '1px orange',
-              WebkitTextFillColor: 'white',
-            }}
-          >
+            order={2}>
             Current Computer Science Courses
           </Title>
         </Box>

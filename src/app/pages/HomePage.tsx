@@ -5,10 +5,6 @@ import Calendar from "../components/Calendar";
 import BlockDay from "../components/BlockDay";
 import ShoutOutCarousel from "../components/ShoutOutCarousel";
 import Courses from '../components/Courses';
-import { Parallax } from '../components/Parallax'; // Import the parallax component
-import mountainBackground from '../img/mountain-background.png';
-import mountainMiddle from '../img/mountain-middle.png';
-import mountainForeground from '../img/jungle-bg.jpg'; // Use a jungle foreground for variety
 
 const HomePage: React.FC = () => {
   useEffect(() => {
@@ -16,24 +12,12 @@ const HomePage: React.FC = () => {
   }, []);
   
   return (
-    <>
-      <Parallax
-               backgroundImageUrl={mountainBackground}
-        middleImageUrl={mountainMiddle}
-        foregroundImageUrl={mountainForeground}
-        containerHeight="50vh"
-        className="hero-parallax"
-      >
+    <>              
         <div>
-          <Title order={1} size="3rem" >
+          <Title className="header-title" order={1} size="2.3rem" >
             Jefferson Academy Computer Science
           </Title>
-          <Text size="xl">
-            Welcome to Mr. Fire's Website
-           </Text>
         </div>
-      </Parallax>
-
       <Container size="xxl" >
         <Grid className="accordion">
           <Grid.Col span={12} >
