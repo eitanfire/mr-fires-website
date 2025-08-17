@@ -4,8 +4,8 @@ export const fallCourses: CourseData[] = [
   {
     id: 0,
     icon: "📱",
-    topBanner: "src/app/img/banners/intro-to-computers-banner.png",
-    bottomBanner: "src/app/img/banners/intro-to-computers-banner.png",
+    // topBanner: "src/app/img/banners/intro-to-computers-banner.png",
+    // bottomBanner: "src/app/img/banners/intro-to-computers-banner.png",
     jACourseTitle: "Intro to Computers 1",
     jeffcoCourseTitle: "Computer Science Foundations I",
     currentWarmUpURL:
@@ -63,5 +63,15 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
     extra:
       "https://docs.google.com/document/d/1hTj7Tr4zhJ6Ysn-0qkXSACiLPEIBXm4xsZ_0MmRaxcs/edit?usp=sharing",
+  },
+  {
+    id: 6,
+    icon: "✨",
+    jACourseTitle: "AI Entrepreneurship",
+    jeffcoCourseTitle: "Artificial Intelligence",
+    currentWarmUpURL: null,
+    canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
+    extra:
+      "https://docs.google.com/document/d/1DEloTH7DzQpXePnHprjSlcYjIBMsiwjgfiIfpACsX94/edit?usp=sharing",
   },
 ];
