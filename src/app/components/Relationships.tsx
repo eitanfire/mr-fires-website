@@ -64,7 +64,7 @@ const Relationships: React.FC = () => {
                 </Title>
               </Button>
 
-              <Button
+              {/* <Button
                 component={Link}
                 to="/contact"
                 className="EitanInfoButtons"
@@ -91,7 +91,7 @@ const Relationships: React.FC = () => {
                 >
                   Contact
                 </Title>
-              </Button>
+              </Button> */}
 
               <Button
                 component={Link}
