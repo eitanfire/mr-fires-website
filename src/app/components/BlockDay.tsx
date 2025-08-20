@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Grid } from "@mantine/core";
 import { useSpring, animated } from "react-spring";
 import weekday from "../utils/day";
-import aDayBDay from "../utils/aDayBDay";
+// import aDayBDay from "../utils/aDayBDay";
 
 interface BlockDayProps {}
 

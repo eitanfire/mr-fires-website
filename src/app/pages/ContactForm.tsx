@@ -1,4 +1,4 @@
-import { Button, Group, Text, Stack, Card, Container } from '@mantine/core';
+import { Button, Text, Stack, Card, Container } from '@mantine/core';
 import { IconBrandGoogleFilled, IconMail } from '@tabler/icons-react';
 
 const ContactForm = () => {
@@ -15,7 +15,7 @@ const ContactForm = () => {
   return (
     <Container size="xs" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '50vh' }}>
       <Card shadow="sm" padding="xl" radius="md" withBorder style={{ width: '100%', maxWidth: 350 }}>
-        <Stack spacing="lg" align="center">
+        <Stack spacing="xl" align="center">
           <Text size="xl" weight={500} color="gray.8">
             Let's Connect
           </Text>

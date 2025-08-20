@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container, Grid, Title, Text } from "@mantine/core";
+import { Container, Grid, Title } from "@mantine/core";
 import Relationships from "../components/Relationships";
 import Calendar from "../components/Calendar";
 import BlockDay from "../components/BlockDay";

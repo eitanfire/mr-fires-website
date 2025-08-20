@@ -1,5 +1,5 @@
 import React from "react";
-import { Center, Group, Text } from "@mantine/core";
+import { Text } from "@mantine/core";
 import getCurrentYear from "../utils/getCurrentYear";
 
 const Footer: React.FC = () => {
