@@ -84,6 +84,13 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
+  const handleCourseDescriptionClick = (course: CourseData, event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+    // TODO: Implement course description functionality
+    console.log(`Show course description for: ${course.jACourseTitle}`);
+  };
+
   const firstColumn = filteredCourses.slice(0, Math.ceil(filteredCourses.length / 2));
   const secondColumn = filteredCourses.slice(Math.ceil(filteredCourses.length / 2));
 
@@ -277,6 +284,21 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
                       </Text>
 
                       <Group className="course-buttons" align="flex-start">
+                        {/* New Course Description Button */}
+                        <Button
+                          leftSection={<IconExternalLink size={16} />}
+                          variant="gradient"
+                          gradient={{ from: 'orange', to: 'red' }}
+                          size="xs"
+                          radius="xl"
+                          onClick={(e) => handleCourseDescriptionClick(course, e)}
+                          style={{ fontSize: '11px', minWidth: 'auto' }}
+                        >
+                          Course Description
+                        </Button>
+
+                        {/* Commented out buttons for later use */}
+                        {/*
                         <Button
                           leftSection={<IconExternalLink size={16} />}
                           variant="gradient"
@@ -314,6 +336,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
                         >
                           Extra Credit
                         </Button>
+                        */}
                       </Group>
                     </div>
                   </div>
