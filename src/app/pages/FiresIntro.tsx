@@ -12,6 +12,8 @@ import {
   Badge
 } from '@mantine/core';
 import { IconSchool, IconHeart, IconCalendar } from '@tabler/icons-react';
+// Add this import
+import profilePicture from '../img/Fires-portfolio-page-picture.png';
 
 // Types
 interface FiressIntroProps {
@@ -28,7 +30,7 @@ const calculateYearsSince = (startYear: number): number => {
 };
 
 const FiresIntro: React.FC<FiressIntroProps> = ({
-  profileImage = '/src/app/img/Fires-portfolio-page-picture.png',
+  profileImage = profilePicture, // Use the imported image as default
   pageTitle = 'About Mr. Fire - Read More'
 }) => {
   const teachingYears = calculateYearsSince(2010);
@@ -74,10 +76,10 @@ const FiresIntro: React.FC<FiressIntroProps> = ({
                     h={300}
                     radius="md"
                     fit="cover"
-                    fallbackSrc="../img/Fires-portfolio-page-picture.png"
- style={{
-    objectPosition: '50% 0%'
-  }}
+                    fallbackSrc={profilePicture} // Use imported image as fallback too
+                    style={{
+                      objectPosition: '50% 0%'
+                    }}
                   />
                   <Box flex={1}>
                     <Title order={3} mb="sm">
@@ -92,6 +94,7 @@ const FiresIntro: React.FC<FiressIntroProps> = ({
                   </Box>
                 </Group>
 
+                {/* Rest of your component remains the same */}
                 <Paper p="md" radius="md" bg="blue.0" withBorder>
                   <Group gap="sm" mb="sm">
                     <IconSchool size="1.2rem" color="var(--mantine-color-blue-6)" />

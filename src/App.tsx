@@ -2,7 +2,7 @@ import Header from "./app/components/Header";
 import Footer from "./app/components/Footer";
 import HomePage from "./app/pages/HomePage";
 import FiresIntro from "./app/pages/FiresIntro";
-import ContactForm from "./app/pages/ContactForm";
+// import ContactForm from "./app/pages/ContactForm";
 import MakeAShoutOutForm from "./app/pages/MakeAShoutOutForm";
 import { Routes, Route } from "react-router-dom";
 import "@mantine/core/styles.css";
@@ -16,7 +16,7 @@ export default function App() {
   <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="read-more" element={<FiresIntro />} />
-        <Route path="contact" element={<ContactForm />} />
+        {/* <Route path="contact" element={<ContactForm />} /> */}
         <Route path="shout-out" element={<MakeAShoutOutForm />} />
       </Routes>            
       <Footer />

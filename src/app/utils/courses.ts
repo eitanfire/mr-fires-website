@@ -1,4 +1,6 @@
 import { CourseData } from '../types/course';
+import jsIcon from "../img/icons/js-icon.png";
+import htmlAndCssIcon from "../img/icons/html-and-css-icon.png";
 
 export const fallCourses: CourseData[] = [
   {
@@ -18,7 +20,7 @@ export const fallCourses: CourseData[] = [
   },
   {
     id: 1,
-    icon: "src/app/img/icons/html-and-css-icon.png",
+    icon: htmlAndCssIcon,
     jACourseTitle: "Web Design in HTML & CSS",
     jeffcoCourseTitle: "Web Design Foundations",
     currentWarmUpURL: null,
@@ -30,7 +32,7 @@ export const fallCourses: CourseData[] = [
   },
   {
     id: 2,
-    icon: "src/app/img/icons/js-icon.png",
+    icon: jsIcon,
     jACourseTitle: "JavaScript Programming",
     jeffcoCourseTitle: "Coding I",
     currentWarmUpURL: null,
