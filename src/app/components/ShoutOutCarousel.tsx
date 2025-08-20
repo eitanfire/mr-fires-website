@@ -90,7 +90,7 @@ const ShoutOutCarousel: React.FC = () => {
   };
 
   // Function to calculate opacity based on distance from center
-  const getSlideOpacity = (slideIndex: number, centerIndex: number, totalSlides: number) => {
+  const getSlideOpacity = (slideIndex: number, centerIndex: number ) => {
     const distance = Math.abs(slideIndex - centerIndex);
     // const maxDistance = Math.floor(totalSlides / 2);
     
@@ -102,7 +102,7 @@ const ShoutOutCarousel: React.FC = () => {
   };
 
   const slides = shoutOuts.map((item: ShoutOut, index: number) => {
-    const opacity = getSlideOpacity(index, selectedIndex, shoutOuts.length);
+    const opacity = getSlideOpacity(index, selectedIndex );
     
     return (
       <Carousel.Slide 

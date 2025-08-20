@@ -78,12 +78,6 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
     );
   };
 
-  const handleLinkClick = (url: string, event: React.MouseEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
   const handleCourseDescriptionClick = (course: CourseData, event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
@@ -285,7 +279,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
                       </Text>
 
                       <Group className="course-buttons" align="flex-start">
-                        {/* New Course Description Button */}
+                        {/* Course Description Button */}
                         {course.courseDescription && (
                           <Button
                             leftSection={<IconExternalLink size={16} />}
@@ -336,7 +330,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
                           radius="xl"
                           onClick={(e) => handleLinkClick(course.extra, e)}
                           style={{ fontSize: '11px', minWidth: 'auto' }}
-                        >
+                          >
                           Extra Credit
                         </Button>
                         */}
