@@ -10,9 +10,6 @@ import {
 } from '@mantine/core';
 import { IconExternalLink } from '@tabler/icons-react';
 import { CourseData } from '../types/course';
-import jsIcon from "../img/icons/js-icon.png";
-import htmlAndCssIcon from "../img/icons/html-and-css-icon.png";
-
 
 interface CourseAccordionProps {
   courses: CourseData[];
