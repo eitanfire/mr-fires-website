@@ -38,9 +38,15 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
     return isInRange && isNotExcluded;
   });
 
-  const isIconUrl = (icon: string): boolean => {
-    return icon.startsWith('src/') || icon.startsWith('http');
-  };
+const isIconUrl = (icon: string): boolean => {
+  // Check if it's an imported asset (starts with /) or external URL
+  return typeof icon === 'string' && (
+    icon.startsWith('/') || 
+    icon.startsWith('http') || 
+    icon.includes('assets') ||
+    icon.startsWith('data:') // For base64 encoded images
+  );
+};
 
   const renderIcon = (icon: string, alt: string) => {
     if (isIconUrl(icon)) {
