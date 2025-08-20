@@ -13,6 +13,8 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142",
     extra:
       "https://docs.google.com/document/d/18w1X4JgZc1-TpHTqggAAVU4nUiZhITBSWhOe-zOmD-0/edit?usp=sharing",
+    courseDescription:
+      "https://docs.google.com/document/d/13yQ4wqeFeYvhmf42ZAYG_sOoi7V0JqZSYt3NM4XimOQ/edit?usp=sharing",
   },
   {
     id: 1,
@@ -23,6 +25,8 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142",
     extra:
       "https://docs.google.com/document/d/1lp0KXx654dFl183-qmcFnV3VtJfUFIEuRYetf3Amct4/edit?usp=sharing",
+    courseDescription:
+      "https://docs.google.com/document/d/1L-EJ5i_eTE54lAAgXzqA5vBJHuSwEAf3iL4YDx2dxjw/edit?usp=sharing",
   },
   {
     id: 2,
@@ -33,6 +37,8 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142",
     extra:
       "https://docs.google.com/document/d/1hMg1ncQIwzSRpVleTKOdrsyMHroaJKPAa7Tv3zHPYLI/edit?usp=sharing",
+    courseDescription:
+      "https://docs.google.com/document/d/19hP-rtHgUUFCX4G_Hii6KIATWnlH-8PN4UMTrYxi4_g/edit?usp=sharing",
   },
   {
     id: 3,
@@ -43,6 +49,7 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
     extra:
       "https://docs.google.com/document/d/1PsgUYS7SXr-yUSy_KOdvrMnPlDgRFpWTUqc1g5cjFmI/edit?usp=sharing",
+    courseDescription: "",
   },
   {
     id: 4,
@@ -53,6 +60,7 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
     extra:
       "https://docs.google.com/document/d/1O7m0VPusCReCbN75iVkWPno32HikyM8KF1mFC4oqBR8/edit?usp=sharing",
+    courseDescription: "",
   },
   {
     id: 5,
@@ -63,6 +71,7 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
     extra:
       "https://docs.google.com/document/d/1hTj7Tr4zhJ6Ysn-0qkXSACiLPEIBXm4xsZ_0MmRaxcs/edit?usp=sharing",
+    courseDescription: "",
   },
   {
     id: 6,
@@ -73,5 +82,7 @@ export const fallCourses: CourseData[] = [
     canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
     extra:
       "https://docs.google.com/document/d/1DEloTH7DzQpXePnHprjSlcYjIBMsiwjgfiIfpACsX94/edit?usp=sharing",
+    courseDescription:
+      "https://docs.google.com/document/d/1wdxvPLwn3_seepsbDEsDMLqQexWZ8-tYQkIz8F9GWsI/edit?usp=sharing",
   },
 ];

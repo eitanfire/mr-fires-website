@@ -87,8 +87,9 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
   const handleCourseDescriptionClick = (course: CourseData, event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
-    // TODO: Implement course description functionality
-    console.log(`Show course description for: ${course.jACourseTitle}`);
+    if (course.courseDescription) {
+      window.open(course.courseDescription, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const firstColumn = filteredCourses.slice(0, Math.ceil(filteredCourses.length / 2));
@@ -285,17 +286,19 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
 
                       <Group className="course-buttons" align="flex-start">
                         {/* New Course Description Button */}
-                        <Button
-                          leftSection={<IconExternalLink size={16} />}
-                          variant="gradient"
-                          gradient={{ from: 'orange', to: 'red' }}
-                          size="xs"
-                          radius="xl"
-                          onClick={(e) => handleCourseDescriptionClick(course, e)}
-                          style={{ fontSize: '11px', minWidth: 'auto' }}
-                        >
-                          Course Description
-                        </Button>
+                        {course.courseDescription && (
+                          <Button
+                            leftSection={<IconExternalLink size={16} />}
+                            variant="gradient"
+                            gradient={{ from: 'orange', to: 'red' }}
+                            size="xs"
+                            radius="xl"
+                            onClick={(e) => handleCourseDescriptionClick(course, e)}
+                            style={{ fontSize: '11px', minWidth: 'auto' }}
+                          >
+                            Course Description
+                          </Button>
+                        )}
 
                         {/* Commented out buttons for later use */}
                         {/*

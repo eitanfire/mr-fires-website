@@ -6,4 +6,5 @@ export interface CourseData {
   currentWarmUpURL?: string | null;
   canvasPage: string;
   extra: string;
+  courseDescription: string;
 }
