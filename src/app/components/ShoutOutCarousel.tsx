@@ -7,8 +7,8 @@ import Autoplay from 'embla-carousel-autoplay';
 
 // Mock data for demonstration
 const shoutOuts = [
-  { to: "Harry", from: "Mr. Fire", because: "Thanks for debugging the website!" },
   { to: "Alice", from: "Bob", because: "Always willing to help others" },
+  { to: "Harry", from: "Mr. Fire", because: "Thanks for debugging the website!" },
   { to: "Mike", from: "Lisa", because: "Excellent problem-solving skills" },
   { to: "Emma", from: "David", because: "Outstanding presentation yesterday" },
   { to: "Chris", from: "Amy", because: "Mentoring new team members" },
