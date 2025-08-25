@@ -12,7 +12,6 @@ import {
   Badge
 } from '@mantine/core';
 import { IconSchool, IconHeart, IconCalendar } from '@tabler/icons-react';
-// Add this import
 import profilePicture from '../img/Fires-portfolio-page-picture.png';
 
 // Types
