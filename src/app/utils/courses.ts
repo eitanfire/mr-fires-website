@@ -1,4 +1,4 @@
-import { CourseData } from '../types/course';
+import { CourseData } from "../types/course";
 import jsIcon from "../img/icons/js-icon.png";
 import htmlAndCssIcon from "../img/icons/html-and-css-icon.png";
 
@@ -33,7 +33,7 @@ export const fallCourses: CourseData[] = [
   {
     id: 2,
     icon: jsIcon,
-    jACourseTitle: "JavaScript Programming",
+    jACourseTitle: "JavaScript Programming / 3-D Design",
     jeffcoCourseTitle: "Coding I",
     currentWarmUpURL: null,
     canvasPage: "https://jajags.instructure.com/courses/3142",
@@ -78,7 +78,8 @@ export const fallCourses: CourseData[] = [
   {
     id: 6,
     icon: "✨",
-    jACourseTitle: "AI Entrepreneurship",
+    jACourseTitle:
+      "AI Entrepreneurship / Applications of AI and Machine Learning",
     jeffcoCourseTitle: "Artificial Intelligence",
     currentWarmUpURL: null,
     canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
