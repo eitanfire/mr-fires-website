@@ -20,7 +20,7 @@ interface CourseAccordionProps {
 const CourseAccordion: React.FC<CourseAccordionProps> = ({ 
   courses, 
   includeIds, 
-  excludeIds = [3, 4, 5]
+  excludeIds = [0, 3, 4, 5]
 }) => {
   const [selectedCourse, setSelectedCourse] = useState<number | null>(null);
 
@@ -101,28 +101,17 @@ const isIconUrl = (icon: string): boolean => {
     }
   };
 
-  const firstColumn = filteredCourses.slice(0, Math.ceil(filteredCourses.length / 2));
-  const secondColumn = filteredCourses.slice(Math.ceil(filteredCourses.length / 2));
-
   return (
     <Box>
       <style>
         {`
           .course-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 10px;
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
             align-items: stretch;
-          }
-
-          @media (max-width: 900px) {
-            .course-container {
-              grid-template-columns: 1fr;
-              grid-auto-rows: auto;
-            }
           }
 
           .course-item {
@@ -188,14 +177,14 @@ const isIconUrl = (icon: string): boolean => {
 
           .course-item.selected .course-details {
             flex: 1 0 auto;
-            max-width: 290px;
+            max-width: 500px;
             opacity: 1;
           }
 
           .course-details-inner {
             padding: 10px 12px;
             min-width: 200px;
-            max-width: 280px;
+            max-width: 480px;
           }
 
           .course-subtitle {
@@ -270,90 +259,82 @@ const isIconUrl = (icon: string): boolean => {
       </Center>
 
       <div className="course-container">
-        {[firstColumn, secondColumn].map((column, colIndex) => (
-          <div key={colIndex} style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
-            {column.map((course, index) => {
-              const courseIndex = colIndex * Math.ceil(filteredCourses.length / 2) + index;
+        {filteredCourses.map((course, index) => (
+          <div 
+            key={course.id}
+            className={`course-item ${selectedCourse === index ? 'selected' : ''}`}
+            onClick={() => setSelectedCourse(selectedCourse === index ? null : index)}
+          >
+            <div className="course-trigger">
+              {renderIcon(course.icon, course.jACourseTitle)}
+              <h3 className={`course-title ${selectedCourse === index ? 'expanded' : ''}`}>
+                {course.jACourseTitle}
+              </h3>
+            </div>
 
-              return (
-                <div 
-                  key={course.id}
-                  className={`course-item ${selectedCourse === courseIndex ? 'selected' : ''}`}
-                  onClick={() => setSelectedCourse(selectedCourse === courseIndex ? null : courseIndex)}
-                >
-                  <div className="course-trigger">
-                    {renderIcon(course.icon, course.jACourseTitle)}
-                    <h3 className={`course-title ${selectedCourse === courseIndex ? 'expanded' : ''}`}>
-                      {course.jACourseTitle}
-                    </h3>
-                  </div>
+            <div className="course-details">
+              <div className="course-details-inner">
+                <Text className="course-subtitle">
+                  {course.jeffcoCourseTitle}
+                </Text>
 
-                  <div className="course-details">
-                    <div className="course-details-inner">
-                      <Text className="course-subtitle">
-                        {course.jeffcoCourseTitle}
-                      </Text>
-
-                      <Group className="course-buttons" align="flex-start">
-                        {/* Course Description Button */}
-                        {course.courseDescription && (
-                          <Button
-                            leftSection={<IconExternalLink size={16} />}
-                            variant="gradient"
-                            gradient={{ from: 'orange', to: 'red' }}
-                            size="xs"
-                            radius="xl"
-                            onClick={(e) => handleCourseDescriptionClick(course, e)}
-                            style={{ fontSize: '11px', minWidth: 'auto' }}
-                          >
-                            Course Description
-                          </Button>
-                        )}
-                        <Button
-                          leftSection={<IconExternalLink size={16} />}
-                          variant="gradient"
-                          gradient={{ from: 'blue', to: 'purple' }}
-                          size="xs"
-                          radius="xl"
-                          onClick={(e) => handleLinkClick(course.canvasPage, e)}
-                          style={{ fontSize: '11px', minWidth: 'auto' }}
-                        >
-                          Canvas
-                        </Button>
-                          {/* Commented out buttons for later use */}
-                        {/*
-                        {course.currentWarmUpURL && (
-                          <Button
-                            leftSection={<IconExternalLink size={16} />}
-                            variant="gradient"
-                            gradient={{ from: 'green', to: 'teal' }}
-                            size="xs"
-                            radius="xl"
-                            onClick={(e) => handleLinkClick(course.currentWarmUpURL!, e)}
-                            style={{ fontSize: '11px', minWidth: 'auto' }}
-                          >
-                            Warm-up
-                          </Button>
-                        )}
-                        
-                        <Button
-                          leftSection={<IconExternalLink size={16} />}
-                          variant="gradient"
-                          gradient={{ from: 'gray', to: 'dark' }}
-                          size="xs"
-                          radius="xl"
-                          onClick={(e) => handleLinkClick(course.extra, e)}
-                          style={{ fontSize: '11px', minWidth: 'auto' }}
-                          >
-                          Extra Credit
-                        </Button>
-                        */}
-                      </Group>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+                <Group className="course-buttons" align="flex-start">
+                  {/* Course Description Button */}
+                  {course.courseDescription && (
+                    <Button
+                      leftSection={<IconExternalLink size={16} />}
+                      variant="gradient"
+                      gradient={{ from: 'orange', to: 'red' }}
+                      size="xs"
+                      radius="xl"
+                      onClick={(e) => handleCourseDescriptionClick(course, e)}
+                      style={{ fontSize: '11px', minWidth: 'auto' }}
+                    >
+                      Course Description
+                    </Button>
+                  )}
+                  <Button
+                    leftSection={<IconExternalLink size={16} />}
+                    variant="gradient"
+                    gradient={{ from: 'blue', to: 'purple' }}
+                    size="xs"
+                    radius="xl"
+                    onClick={(e) => handleLinkClick(course.canvasPage, e)}
+                    style={{ fontSize: '11px', minWidth: 'auto' }}
+                  >
+                    Canvas
+                  </Button>
+                    {/* Commented out buttons for later use */}
+                  {/*
+                  {course.currentWarmUpURL && (
+                    <Button
+                      leftSection={<IconExternalLink size={16} />}
+                      variant="gradient"
+                      gradient={{ from: 'green', to: 'teal' }}
+                      size="xs"
+                      radius="xl"
+                      onClick={(e) => handleLinkClick(course.currentWarmUpURL!, e)}
+                      style={{ fontSize: '11px', minWidth: 'auto' }}
+                    >
+                      Warm-up
+                    </Button>
+                  )}
+                  
+                  <Button
+                    leftSection={<IconExternalLink size={16} />}
+                    variant="gradient"
+                    gradient={{ from: 'gray', to: 'dark' }}
+                    size="xs"
+                    radius="xl"
+                    onClick={(e) => handleLinkClick(course.extra, e)}
+                    style={{ fontSize: '11px', minWidth: 'auto' }}
+                    >
+                    Extra Credit
+                  </Button>
+                  */}
+                </Group>
+              </div>
+            </div>
           </div>
         ))}
       </div>
