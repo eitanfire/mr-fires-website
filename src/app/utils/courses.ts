@@ -24,7 +24,7 @@ export const fallCourses: CourseData[] = [
     jACourseTitle: "Web Design in HTML & CSS",
     jeffcoCourseTitle: "Web Design Foundations",
     currentWarmUpURL: null,
-    canvasPage: "https://jajags.instructure.com/courses/3142",
+    canvasPage: "https://jajags.instructure.com/courses/3140",
     extra:
       "https://docs.google.com/document/d/1lp0KXx654dFl183-qmcFnV3VtJfUFIEuRYetf3Amct4/edit?usp=sharing",
     courseDescription:
@@ -36,7 +36,7 @@ export const fallCourses: CourseData[] = [
     jACourseTitle: "JavaScript Programming / 3-D Design",
     jeffcoCourseTitle: "Coding I",
     currentWarmUpURL: null,
-    canvasPage: "https://jajags.instructure.com/courses/3142",
+    canvasPage: "https://jajags.instructure.com/courses/3141",
     extra:
       "https://docs.google.com/document/d/1hMg1ncQIwzSRpVleTKOdrsyMHroaJKPAa7Tv3zHPYLI/edit?usp=sharing",
     courseDescription:
@@ -48,7 +48,7 @@ export const fallCourses: CourseData[] = [
     jACourseTitle: "Python",
     jeffcoCourseTitle: "Coding I",
     currentWarmUpURL: null,
-    canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
+    canvasPage: "https://jajags.instructure.com/courses/3142",
     extra:
       "https://docs.google.com/document/d/1PsgUYS7SXr-yUSy_KOdvrMnPlDgRFpWTUqc1g5cjFmI/edit?usp=sharing",
     courseDescription: "",
@@ -59,7 +59,7 @@ export const fallCourses: CourseData[] = [
     jACourseTitle: "Intro to Java",
     jeffcoCourseTitle: "Beginning Java Programming",
     currentWarmUpURL: null,
-    canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
+    canvasPage: "https://jajags.instructure.com/courses/3142",
     extra:
       "https://docs.google.com/document/d/1O7m0VPusCReCbN75iVkWPno32HikyM8KF1mFC4oqBR8/edit?usp=sharing",
     courseDescription: "",
@@ -70,7 +70,7 @@ export const fallCourses: CourseData[] = [
     jACourseTitle: "Cybersecurity I",
     jeffcoCourseTitle: "Cybersecurity I",
     currentWarmUpURL: null,
-    canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
+    canvasPage: "https://jajags.instructure.com/courses/3142",
     extra:
       "https://docs.google.com/document/d/1hTj7Tr4zhJ6Ysn-0qkXSACiLPEIBXm4xsZ_0MmRaxcs/edit?usp=sharing",
     courseDescription: "",
@@ -82,7 +82,7 @@ export const fallCourses: CourseData[] = [
       "AI Entrepreneurship / Applications of AI and Machine Learning",
     jeffcoCourseTitle: "Artificial Intelligence",
     currentWarmUpURL: null,
-    canvasPage: "https://jajags.instructure.com/courses/3142", // Updated from Google Classroom
+    canvasPage: "https://jajags.instructure.com/courses/3143",
     extra:
       "https://docs.google.com/document/d/1DEloTH7DzQpXePnHprjSlcYjIBMsiwjgfiIfpACsX94/edit?usp=sharing",
     courseDescription:

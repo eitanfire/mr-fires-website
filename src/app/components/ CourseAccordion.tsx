@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import { 
   Group, 
   Text, 
@@ -89,6 +89,15 @@ const isIconUrl = (icon: string): boolean => {
     event.stopPropagation();
     if (course.courseDescription) {
       window.open(course.courseDescription, '_blank', 'noopener,noreferrer');
+    }
+  };
+
+  // Fixed function signature
+  const handleLinkClick = (canvasPage: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (canvasPage) {
+      window.open(canvasPage, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -265,6 +274,7 @@ const isIconUrl = (icon: string): boolean => {
           <div key={colIndex} style={{ display: 'flex', flexDirection: 'column', gap: '10px', height: '100%' }}>
             {column.map((course, index) => {
               const courseIndex = colIndex * Math.ceil(filteredCourses.length / 2) + index;
+
               return (
                 <div 
                   key={course.id}
@@ -299,9 +309,6 @@ const isIconUrl = (icon: string): boolean => {
                             Course Description
                           </Button>
                         )}
-
-                        {/* Commented out buttons for later use */}
-                        {/*
                         <Button
                           leftSection={<IconExternalLink size={16} />}
                           variant="gradient"
@@ -313,7 +320,8 @@ const isIconUrl = (icon: string): boolean => {
                         >
                           Canvas
                         </Button>
-                        
+                          {/* Commented out buttons for later use */}
+                        {/*
                         {course.currentWarmUpURL && (
                           <Button
                             leftSection={<IconExternalLink size={16} />}
