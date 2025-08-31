@@ -29,7 +29,7 @@ const CourseAccordion: React.FC<CourseAccordionProps> = ({
       return includeIds.includes(course.id);
     }
     
-    const isInRange = course.id >= 0 && course.id <= 6;
+    const isInRange = course.id >= 0 && course.id <= 7;
     const isNotExcluded = !excludeIds.includes(course.id);
     
     return isInRange && isNotExcluded;
