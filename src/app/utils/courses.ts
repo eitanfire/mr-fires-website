@@ -33,7 +33,7 @@ export const fallCourses: CourseData[] = [
   {
     id: 2,
     icon: jsIcon,
-    jACourseTitle: "JavaScript Programming / 3-D Design",
+    jACourseTitle: "JavaScript Programming",
     jeffcoCourseTitle: "Coding I",
     currentWarmUpURL: null,
     canvasPage: "https://jajags.instructure.com/courses/3141",
@@ -87,5 +87,17 @@ export const fallCourses: CourseData[] = [
       "https://docs.google.com/document/d/1DEloTH7DzQpXePnHprjSlcYjIBMsiwjgfiIfpACsX94/edit?usp=sharing",
     courseDescription:
       "https://docs.google.com/document/d/1wdxvPLwn3_seepsbDEsDMLqQexWZ8-tYQkIz8F9GWsI/edit?usp=sharing",
+  },
+  {
+    id: 7,
+    icon: "🦾",
+    jACourseTitle: "3-D Design",
+    jeffcoCourseTitle: "3-D Design",
+    currentWarmUpURL: null,
+    canvasPage: "https://jajags.instructure.com/courses/3141",
+    extra:
+      "https://docs.google.com/document/d/1hMg1ncQIwzSRpVleTKOdrsyMHroaJKPAa7Tv3zHPYLI/edit?usp=sharing",
+    courseDescription:
+      "https://docs.google.com/document/d/1BnDx-a8h2h69TGtRkd1EMG69VJcE7QP4OWEtiyCqMzw/edit?usp=sharing",
   },
 ];
