@@ -57,7 +57,6 @@ export const useParallax = (config: ParallaxConfig) => {
     const container = containerRef.current;
     if (!container) return;
 
-    // Setup container styles with improved visual effects
     container.style.position = 'relative';
     container.style.height = config.containerHeight || '60vh';
     container.style.overflow = 'hidden';
