@@ -92,7 +92,6 @@ const isIconUrl = (icon: string): boolean => {
     }
   };
 
-  // Fixed function signature
   const handleLinkClick = (canvasPage: string, e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
