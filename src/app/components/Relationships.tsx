@@ -108,8 +108,8 @@ const Relationships: React.FC = () => {
                     color: '#000000', // School black text
                     '&:hover': {
                       backgroundColor: '#f1eedf', // Light yellow background on hover
-                      color: '#000000', // Keep black text on hover
-                      borderColor: '#000000', // Keep black border
+                      color: '#000000',
+                      borderColor: '#000000',
                     }
                   }
                 }}
