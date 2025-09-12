@@ -9,10 +9,10 @@ import Autoplay from 'embla-carousel-autoplay';
 const shoutOuts = [
   { to: "Alice", from: "Bob", because: "Always willing to help others" },
   { to: "Harry", from: "Mr. Fire", because: "Thanks for debugging the website!" },
-  { to: "Mike", from: "Lisa", because: "Excellent problem-solving skills" },
-  { to: "Emma", from: "David", because: "Outstanding presentation yesterday" },
-  { to: "Chris", from: "Amy", because: "Mentoring new team members" },
-  { to: "Sophie", from: "Tom", because: "Creative solutions and innovation" },
+  { to: "Pierce", from: "Micheal", because: "For being Micheal" },
+  { to: "Carter", from: "Harry", because: "Being amazing" },
+  { to: "Pierce", from: "Oumar", because: "Oumar progammed better than me" },
+  { to: "Kolby", from: "Hawk", because: "For being extremely intelligent" },
   { to: "Ryan", from: "Kate", because: "Reliable and dedicated work" }
 ];
 
