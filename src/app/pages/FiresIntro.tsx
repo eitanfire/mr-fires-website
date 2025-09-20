@@ -93,7 +93,6 @@ const FiresIntro: React.FC<FiressIntroProps> = ({
                   </Box>
                 </Group>
 
-                {/* Rest of your component remains the same */}
                 <Paper p="md" radius="md" bg="blue.0" withBorder>
                   <Group gap="sm" mb="sm">
                     <IconSchool size="1.2rem" color="var(--mantine-color-blue-6)" />
