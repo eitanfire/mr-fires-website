@@ -5,7 +5,6 @@ import { Box, Title, ActionIcon } from "@mantine/core";
 import { IconPlayerPause, IconPlayerPlay } from "@tabler/icons-react";
 import Autoplay from 'embla-carousel-autoplay';
 
-// Mock data for demonstration
 const shoutOuts = [
   { to: "Alice", from: "Bob", because: "Always willing to help others" },
   { to: "Harry", from: "Mr. Fire", because: "Thanks for debugging the website!" },
