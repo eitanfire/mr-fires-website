@@ -7,12 +7,13 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const shoutOuts = [
   { to: "Alice", from: "Bob", because: "Always willing to help others" },
-  { to: "Harry", from: "Mr. Fire", because: "Thanks for debugging the website!" },
-  { to: "Micheal", from: "Pierce", because: "For being Micheal" },
-  { to: "Harry", from: "Carter", because: "For being amazing" },
-  { to: "Oumar", from: "Pierce", because: "Because Oumar progammed better than me" },
-  { to: "Hawk", from: "Kolby", because: "For being extremely intelligent" },
-  { to: "Ryan", from: "Kate", because: "Reliable and dedicated work" }
+ { to: "Micheal", from: "Pierce", because: "For being Micheal" },
+{ to: "Harry", from: "Carter", because: "Being amazing" },
+{ to: "Oumar", from: "Pierce", because: "Oumar progammed better than me" },
+{ to: "Hawk", from: "Kolby", because: "Extremely inteligent" },
+{ to: "Finn", from: "Pierce", because: "For being the best at being Finn" },
+{ to: "Carter", from: "Grant", because: "For helping me with Javascript code." },
+{ to: "Harry", from: "Carter", because: "Helping me check out my stuff" }
 ];
 
 interface ShoutOut {
