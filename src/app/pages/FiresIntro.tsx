@@ -9,7 +9,8 @@ import {
   Box,
   Group,
   Stack,
-  Badge
+  Badge,
+  Anchor // <-- Added Anchor for links
 } from '@mantine/core';
 import { IconSchool, IconHeart, IconCalendar } from '@tabler/icons-react';
 import profilePicture from '../img/Fires-portfolio-page-picture.png';
@@ -27,6 +28,9 @@ const getCurrentYear = (): number => new Date().getFullYear();
 const calculateYearsSince = (startYear: number): number => {
   return getCurrentYear() - startYear;
 };
+
+// Define the article URL as a constant for easy management
+const JAGWIRE_ARTICLE_URL = "https://jagwire.news/joining-the-jaguar-pride/";
 
 const FiresIntro: React.FC<FiressIntroProps> = ({
   profileImage = profilePicture, // Use the imported image as default
@@ -162,6 +166,10 @@ const FiresIntro: React.FC<FiressIntroProps> = ({
                   <Text size="sm" lh={1.6}>
                     During the week you will find me teaching computer science at Jefferson Academy. Thank you for welcoming me. I
                     look forward to learning more about you.
+                    <br />
+                    <Anchor href={JAGWIRE_ARTICLE_URL} target="_blank" size="xs" c="green.8">
+                      Read more about joining the Jaguar Pride in The Jagwire 📰
+                    </Anchor>
                   </Text>
                 </Paper>
               </Stack>
