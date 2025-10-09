@@ -67,7 +67,6 @@ const FiresIntro: React.FC<FiressIntroProps> = ({
             </Text>
           </Box>
 
-          {/* Main Content */}
           <Grid gutter="xl" align="flex-start">
             <Grid.Col span={{ base: 12, lg: 6 }}>
               <Stack gap="md">
