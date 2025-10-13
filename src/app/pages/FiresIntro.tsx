@@ -10,7 +10,7 @@ import {
   Group,
   Stack,
   Badge,
-  Anchor // <-- Added Anchor for links
+  Anchor
 } from '@mantine/core';
 import { IconSchool, IconHeart, IconCalendar } from '@tabler/icons-react';
 import profilePicture from '../img/Fires-portfolio-page-picture.png';
