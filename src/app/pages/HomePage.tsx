@@ -40,7 +40,6 @@ const HomePage: React.FC = () => {
             <Calendar />
           </Grid.Col>
           <Grid.Col 
-            // span={{ base: 12, lg: 9 }}
             className="accordion"
           >
             <Courses />
